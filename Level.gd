@@ -1,12 +1,14 @@
 extends Node2D
 
 var collision_pos = []
-	
-func _process(delta):
-	var cpos = $ForegroundTileMap.world_to_map($Player.position)
-	#$CanvasLayer/GridContainer/TilePos.text = str(cpos)
-	var mpos = $ForegroundTileMap.world_to_map(get_global_mouse_position())
-	#$CanvasLayer/GridContainer/MousePos.text = str(mpos)
+
+func _ready():
+	var screen_size = OS.get_screen_size()
+	var window_size = OS.get_window_size()
+
+	OS.set_window_position(screen_size*0.5 - window_size*0.5)
+
+
 
 func _on_Character_collided(collision):
 	# KinematicCollision2D object emitted by character
