@@ -25,6 +25,12 @@ func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if collision.collider.name == "HazardTileMap":
+			get_tree().reload_current_scene()
+
 
 	if Input.is_action_just_pressed('ui_select'):
 		if is_on_floor():
