@@ -3,6 +3,9 @@
 [ext_resource path="res://characters.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 11 )
+
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 60, 31, 30 )
@@ -27,19 +30,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 8, 11 )
-
 [node name="Area2D" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-scale = Vector2( 2, 2 )
-frames = SubResource( 5 )
-animation = "walk"
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -12, 6 )
+position = Vector2( 0, 6 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 6 )
 
@@ -48,3 +43,11 @@ current = true
 limit_left = -100
 limit_bottom = 420
 drag_margin_h_enabled = true
+
+[node name="SpriteFlip" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="SpriteFlip"]
+position = Vector2( 12, 0 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 5 )
+animation = "walk"
