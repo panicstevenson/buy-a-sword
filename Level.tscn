@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ForegroundTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://items/buyable_sword.tscn" type="PackedScene" id=5]
 [ext_resource path="res://HazardTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://npcs/most_important_npc.tscn" type="PackedScene" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -32,3 +33,6 @@ position = Vector2( 1118.64, 340.826 )
 offset = Vector2( 1000, 0 )
 scale = Vector2( 1.2, 1 )
 transform = Transform2D( 1.2, 0, 0, 1, 1000, 0 )
+
+[node name="most_important_npc" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1059.98, 324.002 )
