@@ -26,10 +26,14 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
+	var buttonVisible = false
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "HazardTileMap":
 			get_tree().reload_current_scene()
+		if collision.collider.name == "most_important_npc":
+			buttonVisible = true
+	$Sprite.visible = buttonVisible
 
 
 	if Input.is_action_just_pressed('ui_select'):
