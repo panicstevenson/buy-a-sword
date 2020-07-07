@@ -15,4 +15,4 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	floatLetters += delta * 10
-	$ColorRect/RichTextLabel.visible_characters = floor(floatLetters)
+	$CanvasLayer/ColorRect/RichTextLabel.visible_characters = floor(floatLetters)
