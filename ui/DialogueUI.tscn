@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/DialogueUI.gd" type="Script" id=1]
+[ext_resource path="res://fonts/boxy_bold.tres" type="DynamicFont" id=2]
+
+[node name="DialogueUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -264.032
+margin_top = -176.603
+margin_right = 263.968
+margin_bottom = -30.6025
+color = Color( 0.752941, 0.752941, 0.752941, 0.207843 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+margin_left = 12.3895
+margin_top = 11.6025
+margin_right = 491.39
+margin_bottom = 105.603
+rect_pivot_offset = Vector2( -162.144, -398.905 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "this font is really sssssooommmeeethinggggg"
+scroll_active = false
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="pressZ" type="RichTextLabel" parent="ColorRect"]
+margin_left = 379.592
+margin_top = 115.829
+margin_right = 511.592
+margin_bottom = 137.829
+rect_pivot_offset = Vector2( -162.144, -398.905 )
+custom_fonts/normal_font = ExtResource( 2 )
+text = "[ press z ]"
+scroll_active = false
+__meta__ = {
+"_editor_description_": ""
+}
