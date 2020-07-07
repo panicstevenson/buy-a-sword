@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://ForegroundTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://HazardTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Background.tscn" type="PackedScene" id=7]
 [ext_resource path="res://npcs/most_important_npc.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Door.tscn" type="PackedScene" id=9]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -28,7 +29,6 @@ tile_data = PoolIntArray( 786478, 2, 0, 786479, 0, 0, 786480, 0, 0, 786481, 0, 0
 
 [node name="Sprite" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1121, 331 )
-scale = Vector2( 2, 2 )
 
 [node name="Background" parent="." instance=ExtResource( 7 )]
 offset = Vector2( 1000, 0 )
@@ -37,3 +37,7 @@ transform = Transform2D( 1.2, 0, 0, 1, 1000, 0 )
 
 [node name="most_important_npc" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1059.98, 324.002 )
+
+[node name="Door" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1281.28, 325.269 )
+z_index = -1
