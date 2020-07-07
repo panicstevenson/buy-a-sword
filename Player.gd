@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var speed = 400  # How fast the player will move (pixels/sec).
 export var jump = -700
 export var gravity = 2500
+export var is_touching = false
 var screen_size  # Size of the game window.
 
 var jumping = false
@@ -35,8 +36,9 @@ func _physics_process(delta):
 		if collision.collider.name == "most_important_npc":
 			buttonVisible = true
 		if collision.collider.name == "Door":
-			buttonVisible = true
-	$Sprite.visible = buttonVisible
+			if collision.collider.has_method("_interact"):
+				buttonVisible = true
+	$Sprite.visible = buttonVisible or is_touching
 
 	if Input.is_action_just_pressed('ui_select'):
 		if is_on_floor():
