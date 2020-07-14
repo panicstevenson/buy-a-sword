@@ -22,7 +22,7 @@ animations = [ {
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 8, -20, 15, 0 )
 
-[node name="most_important_npc" type="KinematicBody2D"]
+[node name="most_important_npc" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="SpriteFlip" type="Node2D" parent="."]
@@ -32,8 +32,6 @@ position = Vector2( -4, 4 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
 animation = "stan"
-frame = 1
-playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -15, 28 )
