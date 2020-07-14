@@ -6,6 +6,8 @@ export var gravity = 2500
 export var is_touching = false
 var screen_size  # Size of the game window.
 
+var touching = []
+
 var jumping = false
 var velocity = Vector2.ZERO
 
@@ -34,7 +36,7 @@ func _physics_process(delta):
 		if collision.collider.name == "HazardTileMap":
 			get_tree().reload_current_scene()
 
-	$Sprite.visible = buttonVisible or is_touching
+	$Sprite.visible = buttonVisible or touching.size()
 
 	if Input.is_action_just_pressed('ui_select'):
 		if is_on_floor():
