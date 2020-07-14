@@ -15,6 +15,7 @@ var rect = null
 
 var currentText = ""
 var showing = false
+var goingFast = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,12 +26,14 @@ func _ready():
 func _process(delta):
 	rect.visible = showing
 	if showing:
-		floatLetters += delta * 10
+		if goingFast:
+			floatLetters += delta * 200
+		else:
+			floatLetters += delta * 20
 		label.visible_characters = floor(floatLetters)
 		if Input.is_action_just_pressed("key_action"):
 			if floatLetters < currentText.length():
-				# skip to end
-				floatLetters = currentText.length()
+				goingFast = true
 			else:
 				showing = false
 	else:
@@ -49,3 +52,4 @@ func showText(text):
 	label.text = text
 	currentText = text
 	showing = true
+	goingFast = false
