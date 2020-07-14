@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://buttonprompt.png" type="Texture" id=1]
+[ext_resource path="res://fonts/boxy_bold.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Bubble.gd" type="Script" id=3]
+
+[node name="Bubble" type="Sprite"]
+visible = false
+position = Vector2( 0, -48 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = -3.98547
+margin_top = -4.72788
+margin_right = 12.0145
+margin_bottom = 14.2721
+rect_scale = Vector2( 0.54556, 0.54556 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[rainbow freq=5 sat=10 val=20]z[/rainbow]"
+text = "z"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

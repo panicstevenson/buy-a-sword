@@ -30,13 +30,10 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 
-	var buttonVisible = false
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "HazardTileMap":
 			var _reload = get_tree().reload_current_scene()
-
-	$Sprite.visible = buttonVisible or touching.size()
 
 	if Input.is_action_just_pressed('ui_select'):
 		if is_on_floor():
