@@ -2,7 +2,5 @@ extends Interactable
 
 var _letter = "NPC"
 
-func _ready():
-	._ready()
+func _process(_delta):
 	$SpriteFlip/AnimatedSprite.play()
-	#$Interactable/Bubble.visible = false

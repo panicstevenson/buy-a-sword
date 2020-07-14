@@ -1,35 +1,40 @@
 extends Area2D
+
 class_name Interactable
 
+export var bubble_position = Vector2( 0, 0 )
+
 var letter = "Interactable"
-var bubbleScene = load("res://Bubble.tscn")
-var bubble = null
+const bubble_scene = preload("res://Bubble.tscn")
+var bubble = bubble_scene.instance()
+var touching = false
 
-var firstFrameCalled = false
-
-func _ready():
-	bubble = bubbleScene.instance()
-	add_child(bubble)
+func _init():
 	var _body_entered = connect("body_entered", self, "_on_Interactable_body_entered")
 	var _body_exited = connect("body_exited", self, "_on_Interactable_body_exited")
 
-func _process(delta):
-	if !firstFrameCalled:
-		firstFrameCalled = true
-		firstFrame()
 
-func firstFrame():
-	bubble.visible = false
+func _ready():
+	add_child(bubble)
+	bubble.position = bubble_position
+
+
+func _process(_delta):
+	if self.touching:
+		bubble.show()
+	else:
+		bubble.hide()
+
 
 func _on_Interactable_body_entered(body):
-	bubble.visible = true
 	if (body.get_name() == "Player"):
+		self.touching = true
 		body.touching.append(self.name)
 
 
 func _on_Interactable_body_exited(body):
-	bubble.visible = false
 	if (body.get_name() == "Player"):
+		self.touching = false
 		body.touching.erase(self.name)
 
 
