@@ -34,7 +34,7 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "HazardTileMap":
-			get_tree().reload_current_scene()
+			var _reload = get_tree().reload_current_scene()
 
 	$Sprite.visible = buttonVisible or touching.size()
 

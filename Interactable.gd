@@ -4,8 +4,8 @@ class_name Interactable
 var letter = "Z"
 
 func _ready():
-	connect("body_entered", self, "_on_Interactable_body_entered")
-	connect("body_exited", self, "_on_Interactable_body_exited")
+	var _body_entered = connect("body_entered", self, "_on_Interactable_body_entered")
+	var _body_exited = connect("body_exited", self, "_on_Interactable_body_exited")
 
 
 func _on_Interactable_body_entered(body):
