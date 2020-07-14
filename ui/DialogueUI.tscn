@@ -10,6 +10,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+labelPath = NodePath("CanvasLayer/ColorRect/RichTextLabel")
+rectPath = NodePath("CanvasLayer/ColorRect")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
