@@ -33,11 +33,7 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "HazardTileMap":
 			get_tree().reload_current_scene()
-		#if collision.collider.name == "most_important_npc":
-		#	buttonVisible = true
-		#if collision.collider.name == "Door":
-		#	if collision.collider.has_method("_interact"):
-		#		buttonVisible = true
+
 	$Sprite.visible = buttonVisible or is_touching
 
 	if Input.is_action_just_pressed('ui_select'):
