@@ -1,4 +1,4 @@
-extends Interactable
+extends Dialogueable
 
 var _letter = "NPC"
 

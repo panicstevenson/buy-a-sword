@@ -35,6 +35,7 @@ func _process(delta):
 			if floatLetters < currentText.length():
 				goingFast = true
 			else:
+				get_parent().find_node("Player").emit_signal("PLAYER_OCCUPIED", false)
 				showing = false
 	else:
 		# TODO REMOVE
@@ -45,6 +46,7 @@ func _process(delta):
 				tempStr += "hey "
 			tempStr += "how u doin?"
 			showText(tempStr)
+			
 
 
 func showText(text):

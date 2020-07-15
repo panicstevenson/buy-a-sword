@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Interactable",
+"class": "Dialogueable",
+"language": "GDScript",
+"path": "res://Dialogueable.gd"
+}, {
 "base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://Interactable.gd"
 } ]
 _global_script_class_icons={
+"Dialogueable": "",
 "Interactable": ""
 }
 

@@ -3,17 +3,36 @@ extends KinematicBody2D
 export var speed = 400  # How fast the player will move (pixels/sec).
 export var jump = -700
 export var gravity = 2500
-export var is_touching = false
 var screen_size  # Size of the game window.
 
-var touching = []
+var touching = null
 
 var jumping = false
 var velocity = Vector2.ZERO
 
+signal PLAYER_OCCUPIED(is_occupied)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+
+
+func _on_Interactable_entered(interactable: Interactable):
+	print("entered: " + interactable.name)
+	touching = interactable
+
+
+func _on_Interactable_exited(interactable: Interactable):
+	print("exited: " + interactable.name)
+	interactable.set_visible(false)
+	touching = null
+	emit_signal("PLAYER_OCCUPIED", false)
+
+
+func _process(_delta):
+	if not touching:
+		return
+	touching.set_visible(true)
 
 
 func get_input():
@@ -23,6 +42,11 @@ func get_input():
 		velocity.x += speed
 	if Input.is_action_pressed("ui_left"):
 		velocity.x -= speed
+	if Input.is_action_just_pressed("ui_up"):
+		if not touching:
+			return
+		emit_signal("PLAYER_OCCUPIED", true)
+		touching.interact()
 
 
 func _physics_process(delta):

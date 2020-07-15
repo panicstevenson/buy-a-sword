@@ -7,7 +7,15 @@ export var bubble_position = Vector2( 0, 0 )
 var letter = "Interactable"
 const bubble_scene = preload("res://Bubble.tscn")
 var bubble = bubble_scene.instance()
-var touching = false
+var show_bubble = false
+var player_occupied = false
+
+var Player = null
+var dialogue_ui = null
+
+signal interactable_entered(node)
+signal interactable_exited(node)
+
 
 func _init():
 	var _body_entered = connect("body_entered", self, "_on_Interactable_body_entered")
@@ -15,28 +23,40 @@ func _init():
 
 
 func _ready():
+	Player = get_parent().find_node("Player")
+	dialogue_ui = get_parent().find_node("DialogueUI")
+	var _player_occupied = Player.connect("PLAYER_OCCUPIED", self, "_set_Player_occupied")
+	var _interactable_entered = connect("interactable_entered", Player, "_on_Interactable_entered")
+	var _interactable_exited = connect("interactable_exited", Player, "_on_Interactable_exited")
 	add_child(bubble)
 	bubble.position = bubble_position
 
 
 func _process(_delta):
-	if self.touching:
+	if show_bubble and not player_occupied:
 		bubble.show()
 	else:
 		bubble.hide()
 
 
-func _on_Interactable_body_entered(body):
-	if (body.get_name() == "Player"):
-		self.touching = true
-		body.touching.append(self.name)
+func _on_Interactable_body_entered(body: Node2D):
+	if (body == Player):
+		emit_signal("interactable_entered", self)
 
 
-func _on_Interactable_body_exited(body):
-	if (body.get_name() == "Player"):
-		self.touching = false
-		body.touching.erase(self.name)
+func _on_Interactable_body_exited(body: Node2D):
+	if (body == Player):
+		emit_signal("interactable_exited", self)
 
 
-func _on_interact():
-	pass
+func _set_Player_occupied(is_occupied: bool):
+	player_occupied = is_occupied
+
+
+func set_visible(is_visible: bool):
+	show_bubble = is_visible
+
+
+func interact():
+	dialogue_ui.showText("Hello, I am interactable.")
+	print(self.name)
