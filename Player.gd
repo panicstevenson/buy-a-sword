@@ -5,6 +5,9 @@ export var jump = -700
 export var gravity = 2500
 var screen_size  # Size of the game window.
 
+var max_health = 100
+var health = 100
+
 var touching = null
 
 var jumping = false
