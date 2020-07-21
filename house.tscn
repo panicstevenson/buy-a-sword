@@ -16,6 +16,7 @@ extents = Vector2( 64, 8 )
 extents = Vector2( 69.223, 58.0773 )
 
 [node name="HouseInside_TileMap" type="TileMap"]
+scale = Vector2( 2, 2 )
 z_index = -2
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
