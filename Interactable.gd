@@ -59,4 +59,3 @@ func set_visible(is_visible: bool):
 
 func interact():
 	dialogue_ui.showText("Hello, I am interactable.")
-	print(self.name)
