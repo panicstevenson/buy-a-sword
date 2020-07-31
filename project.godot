@@ -41,7 +41,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "dialogue_tree" )
+enabled=PoolStringArray( "EXP-System-Dialog", "dialogue_tree" )
 
 [input]
 
