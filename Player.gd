@@ -13,6 +13,7 @@ var touching = null
 var jumping = false
 var velocity = Vector2.ZERO
 
+var is_occupied = false
 signal PLAYER_OCCUPIED(is_occupied)
 
 # Called when the node enters the scene tree for the first time.
@@ -29,7 +30,7 @@ func _on_Interactable_exited(interactable: Interactable):
 	print("exited: " + interactable.name)
 	interactable.set_visible(false)
 	touching = null
-	emit_signal("PLAYER_OCCUPIED", false)
+	_set_occupied(false)
 
 
 func _process(_delta):
@@ -42,14 +43,20 @@ func get_input():
 	velocity.x = 0
 	jumping = false
 	if Input.is_action_pressed("ui_right"):
-		velocity.x += speed
+		if not is_occupied:
+			velocity.x += speed
 	if Input.is_action_pressed("ui_left"):
-		velocity.x -= speed
+		if not is_occupied:
+			velocity.x -= speed
 	if Input.is_action_just_pressed("ui_up"):
 		if not touching:
 			return
-		emit_signal("PLAYER_OCCUPIED", true)
-		touching.interact()
+		if is_occupied:
+			if not touching.interact():
+				_set_occupied(false)
+		else:
+			_set_occupied(true)
+			touching.interact()
 
 
 func _physics_process(delta):
@@ -75,3 +82,7 @@ func _physics_process(delta):
 			$SpriteFlip.scale.x = 1
 	else:
 		$SpriteFlip/AnimatedSprite.stop()
+		
+func _set_occupied(occupied):
+	is_occupied = occupied
+	emit_signal("PLAYER_OCCUPIED", is_occupied)

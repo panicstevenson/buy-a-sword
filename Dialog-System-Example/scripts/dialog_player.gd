@@ -23,26 +23,26 @@ func _ready():
 	_Dialog_Box.visible = false
 	_SpaceBar_Icon.visible = false
 	
-	play_dialog("Plains/Battle/Slime")
-
-
-func _input(event):
-	if event is InputEventKey:
-		if event.pressed == true and event.scancode == KEY_SPACE:
-			_on_Dialog_Player_pressed_spacebar()
+	# play_dialog("Plains/Battle/Slime")
 
 # Callback Methods
 
 func _on_Body_AnimationPlayer_animation_finished(anim_name):
 	_SpaceBar_Icon.visible = true
 
-
-func _on_Dialog_Player_pressed_spacebar():
+#happens when you press space, returns true if still occupied
+func trigger_next_dialogue():
 	if _is_waiting():
 		_SpaceBar_Icon.visible = false
 		_get_next_node()
 		if _is_playing():
 			_play_node()
+			return true
+		else:
+			return false #finished
+	else:
+		# do nothing
+		return true # TODO press interact to speed up text
 
 # Public Methods
 

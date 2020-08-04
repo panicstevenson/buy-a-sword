@@ -106,14 +106,20 @@ tile_set = SubResource( 2 )
 tile_set = SubResource( 2 )
 
 [node name="DialogueUI" parent="." instance=ExtResource( 10 )]
+visible = false
 margin_left = 384.666
 margin_top = 296.985
 margin_right = 384.666
 margin_bottom = 296.985
 
+[node name="ColorRect" parent="DialogueUI/CanvasLayer" index="0"]
+visible = false
+
 [node name="GUI" parent="." instance=ExtResource( 11 )]
 script = ExtResource( 12 )
 
 [editable path="HouseInside_TileMap"]
+
+[editable path="DialogueUI"]
 
 [editable path="GUI"]

@@ -30,6 +30,10 @@ config/name="Buy A Sword"
 run/main_scene="res://Level.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Dialog_Player="*res://Dialog-System-Example/Dialog_Player.tscn"
+
 [display]
 
 window/size/width=720
@@ -41,7 +45,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "EXP-System-Dialog", "dialogue_tree" )
+enabled=PoolStringArray( "EXP-System-Dialog" )
 
 [input]
 

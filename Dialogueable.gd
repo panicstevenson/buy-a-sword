@@ -6,9 +6,12 @@ var talk_count = 0
 var do_action
 var cellophanery = 1
 
-func interact():
-	dialogue()
+# TODO move dialog_player in here
+# TODO create the actual dialogue nodes for this guy
+export var dialogue_tree = "Plains/Battle/Slime"
 
+func interact():
+	return dialogue()
 
 func dialogue():
 	var text = ""
@@ -19,8 +22,9 @@ func dialogue():
 	else:
 		text = "I'm cellophaneeeeeeeeeeeeeeeeeeee"
 		do_action = true
-	dialogue_ui.showText(text)
 	do_action(do_action)
+	# TODO fix, move the code over from Interact Table
+	return dialog_player.play_dialog(dialogue_tree)
 
 func do_action(do_action):
 	cellophanery = cellophanery * 0.75
