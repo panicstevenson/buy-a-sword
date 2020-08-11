@@ -10,6 +10,7 @@ var _did = 0
 var _nid = 0
 var _final_nid = 0
 var _Story_Reader
+var _Game_State_Controller
 
 # Virtual Methods
 
@@ -20,6 +21,8 @@ func _ready():
 	var story = load("res://stories/SimpleStory_Baked.tres")
 	_Story_Reader.read(story)
 	
+	_Game_State_Controller = get_node("/root/GameStateController")
+
 	_Dialog_Box.visible = false
 	_SpaceBar_Icon.visible = false
 	
@@ -86,10 +89,7 @@ func _play_node():
 	var dialog = _get_tagged_text("dialog", text)
 	var variables = [_get_tagged_text("var", text)]
 	var variable_map = _unpack_variables(variables)
-	if variable_map:
-		for k in variable_map.keys():
-			print(str(k) + ": " + str(variable_map[k]))
-		# TODO: Create a Singleton for variables
+	_Game_State_Controller.update_variables(variable_map)
 
 	_Speaker_LBL.text = speaker
 	_Body_LBL.text = dialog
@@ -102,5 +102,6 @@ func _unpack_variables(variables):
 			continue
 		var var_name = variable.split("=")[0].strip_edges()
 		var var_value = variable.split("=")[1].strip_edges()
+		# TODO: Parse the value's type (Number, String, Boolean, Counter)
 		variable_map[var_name] = var_value
 	return variable_map
