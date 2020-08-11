@@ -84,7 +84,23 @@ func _play_node():
 	var text = _Story_Reader.get_text(_did, _nid)
 	var speaker = _get_tagged_text("speaker", text)
 	var dialog = _get_tagged_text("dialog", text)
-		
+	var variables = [_get_tagged_text("var", text)]
+	var variable_map = _unpack_variables(variables)
+	if variable_map:
+		for k in variable_map.keys():
+			print(str(k) + ": " + str(variable_map[k]))
+		# TODO: Create a Singleton for variables
+
 	_Speaker_LBL.text = speaker
 	_Body_LBL.text = dialog
 	_Body_AnimationPlayer.play("TextDisplay")
+
+func _unpack_variables(variables):
+	var variable_map = {}
+	for variable in variables:
+		if not variable:
+			continue
+		var var_name = variable.split("=")[0].strip_edges()
+		var var_value = variable.split("=")[1].strip_edges()
+		variable_map[var_name] = var_value
+	return variable_map
