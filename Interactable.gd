@@ -58,12 +58,11 @@ func _set_Player_occupied(is_occupied: bool):
 func set_visible(is_visible: bool):
 	show_bubble = is_visible
 
+
 # returns whether the interaction is still going
 func interact():
-	# dialog_player.showText("Hello, I am interactable.")
-	if dialog_player._is_playing():
-		# TODO this is kinda a bug but itll work atm
-		return dialog_player.trigger_next_dialogue()
-	else:
-		dialog_player.play_dialog("Plains/Battle/Slime")
-		return true
+	# do_interaction()
+	# TODO: Figure out if an interaction should ever be blocking
+	if player_occupied:
+		return false
+	return true
