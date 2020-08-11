@@ -33,6 +33,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Dialog_Player="*res://Dialog-System-Example/Dialog_Player.tscn"
+GameStateController="*res://system/GameStateController.gd"
 
 [display]
 
