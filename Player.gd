@@ -70,7 +70,7 @@ func _physics_process(delta):
 			var _reload = get_tree().reload_current_scene()
 
 	if Input.is_action_just_pressed('ui_select'):
-		if is_on_floor():
+		if is_on_floor() and not is_occupied:
 			velocity.y = jump
 
 	if velocity.x != 0:
