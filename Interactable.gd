@@ -63,6 +63,4 @@ func set_visible(is_visible: bool):
 func interact():
 	# do_interaction()
 	# TODO: Figure out if an interaction should ever be blocking
-	if player_occupied:
-		return false
-	return true
+	return not player_occupied
