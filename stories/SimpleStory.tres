@@ -45,7 +45,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>World's Strongest Boy</speaker>
-<dialog>North/South equals East/West..</dialog>",
+<dialog>East/West equals North/South</dialog>",
 "type": "line"
 },
 4: {
