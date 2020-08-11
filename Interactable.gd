@@ -11,7 +11,6 @@ var show_bubble = false
 var player_occupied = false
 
 var Player = null
-var dialog_player = null
 
 signal interactable_entered(node)
 signal interactable_exited(node)
@@ -24,7 +23,6 @@ func _init():
 
 func _ready():
 	Player = get_parent().find_node("Player")
-	dialog_player = get_node("/root/Dialog_Player") # get_parent().find_node("DialogueUI")
 	var _player_occupied = Player.connect("PLAYER_OCCUPIED", self, "_set_Player_occupied")
 	var _interactable_entered = connect("interactable_entered", Player, "_on_Interactable_entered")
 	var _interactable_exited = connect("interactable_exited", Player, "_on_Interactable_exited")

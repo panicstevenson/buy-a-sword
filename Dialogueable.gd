@@ -2,13 +2,15 @@ extends Interactable
 
 class_name Dialogueable
 
-var talk_count = 0
-var do_action
-var cellophanery = 1
+var dialog_player = null
 
 # TODO move dialog_player in here
 # TODO create the actual dialogue nodes for this guy
 export var dialogue_tree = "Plains/Battle/Slime"
+
+func _ready():
+	dialog_player = get_node("/root/Dialog_Player")
+
 
 func interact():
 	return dialogue()
