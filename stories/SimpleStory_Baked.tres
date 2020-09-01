@@ -23,10 +23,13 @@ story = {
 },
 3: {
 "links": {
-0: 4
+0: 4,
+1: 6
 },
 "text": "<speaker>World's Strongest Boy</speaker>
-<dialog>East/West equals North/South</dialog>"
+<dialog>East/West equals North/South</dialog>
+<if>talked == false => 0</if>
+<else>1</else>"
 },
 4: {
 "links": {
@@ -41,6 +44,14 @@ story = {
 
 },
 "text": "<end>"
+},
+6: {
+"links": {
+0: 5
+},
+"text": "<speaker>World's Strongest Boy</speaker>
+<dialog>Stop talking to me, thanks</dialog>
+<var>talked = false</var>"
 }
 }
 },

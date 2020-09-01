@@ -75,12 +75,31 @@ func _get_next_node():
 
 
 func _get_tagged_text(tag : String, text : String):
+	# TODO return multiple results if found
 	var start_tag = "<" + tag + ">"
 	var end_tag = "</" + tag + ">"
 	var start_index = text.find(start_tag) + start_tag.length()
 	var end_index = text.find(end_tag)
 	var substr_length = end_index - start_index
 	return text.substr(start_index, substr_length)
+	
+func _parse_conditionals(text : String):
+	var text_split = text.split("=>")
+	if len(text_split) < 2:
+		print("Need a => character in conditional " + text)
+		return
+	var conditions = text_split[0].strip_edges()
+	var destination = text_split[1].strip_edges()
+	
+	var condition_regex = RegEx.new()
+	condition_regex.compile("(?P<operand1>\\w+)\\s*(?P<operator>[<>!=]=)\\s*(?P<operand2>\\w+)\\s*(?P<logic_gate>and|or)?\\s*")
+	for condition in condition_regex.search_all(conditions):
+		for key in condition.names:
+			print(key + ": " + str(condition.names[key]))
+			print("match: " + condition.strings[condition.names[key]])
+	var indexInText = 0
+	# TODO how does branching work? what is the format of the returned thing? should it just check the vars here?
+	
 
 
 func _play_node():
@@ -90,6 +109,11 @@ func _play_node():
 	var variables = [_get_tagged_text("var", text)]
 	var variable_map = _unpack_variables(variables)
 	_Game_State_Controller.update_variables(variable_map)
+	
+	# TODO LOTS LEFT TO DO HERE - this is j ust for texting
+	if "<if>" in text:
+		var conditional = _get_tagged_text("if", text)
+		_parse_conditionals(conditional)
 
 	_Speaker_LBL.text = speaker
 	_Body_LBL.text = dialog

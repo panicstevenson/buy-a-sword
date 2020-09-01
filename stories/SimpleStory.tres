@@ -38,18 +38,21 @@ story = {
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 860, 360 ),
+"graph_offset": Vector2( 880, 380 ),
 "links": {
-0: 4
+0: 4,
+1: 6
 },
 "rect_size": Vector2( 324, 137 ),
-"slot_amount": 1,
+"slot_amount": 2,
 "text": "<speaker>World's Strongest Boy</speaker>
-<dialog>East/West equals North/South</dialog>",
+<dialog>East/West equals North/South</dialog>
+<if>talked == false => 0</if>
+<else>1</else>",
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 1320, 440 ),
+"graph_offset": Vector2( 1360, 380 ),
 "links": {
 0: 5
 },
@@ -68,6 +71,18 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 1380, 600 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 484, 173 ),
+"slot_amount": 1,
+"text": "<speaker>World's Strongest Boy</speaker>
+<dialog>Stop talking to me, thanks</dialog>
+<var>talked = false</var>",
 "type": "line"
 }
 }
