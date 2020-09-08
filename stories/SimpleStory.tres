@@ -43,11 +43,14 @@ story = {
 0: 4,
 1: 6
 },
-"rect_size": Vector2( 324, 137 ),
+"rect_size": Vector2( 521.833, 222.833 ),
 "slot_amount": 2,
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>East/West equals North/South</dialog>
-<if>talked == false => 0</if>
+<if>talked0 == false => 0</if>
+<if>talked1 == false => 0</if>
+<if>talked2 == false => 0</if>
+<if>talked3 == false => 0</if>
 <else>1</else>",
 "type": "line"
 },

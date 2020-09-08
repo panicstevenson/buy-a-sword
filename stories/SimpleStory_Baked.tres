@@ -28,7 +28,10 @@ story = {
 },
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>East/West equals North/South</dialog>
-<if>talked == false => 0</if>
+<if>talked0 == false => 0</if>
+<if>talked1 == false => 0</if>
+<if>talked2 == false => 0</if>
+<if>talked3 == false => 0</if>
 <else>1</else>"
 },
 4: {

@@ -8,6 +8,7 @@ onready var _SpaceBar_Icon = self.find_node("SpaceBar_NinePatchRect")
 
 var _did = 0
 var _nid = 0
+var _next_slot = 0
 var _final_nid = 0
 var _Story_Reader
 var _Game_State_Controller
@@ -68,13 +69,20 @@ func _is_waiting():
 
 
 func _get_next_node():
-	_nid = _Story_Reader.get_nid_from_slot(_did, _nid, 0)
+	_nid = _Story_Reader.get_nid_from_slot(_did, _nid, _next_slot)
 	
 	if _nid == _final_nid:
 		_Dialog_Box.visible = false
 
 
 func _get_tagged_text(tag : String, text : String):
+	var tagged_regex = RegEx.new()
+	tagged_regex.compile("<" + tag + ">(.*)<\/" + tag + ">")
+	var results = []
+	for content in tagged_regex.search_all(text):
+		results.append(content.strings[1])
+	return results
+		
 	# TODO return multiple results if found
 	var start_tag = "<" + tag + ">"
 	var end_tag = "</" + tag + ">"
@@ -90,30 +98,45 @@ func _parse_conditionals(text : String):
 		return
 	var conditions = text_split[0].strip_edges()
 	var destination = text_split[1].strip_edges()
-	
+
 	var condition_regex = RegEx.new()
-	condition_regex.compile("(?P<operand1>\\w+)\\s*(?P<operator>[<>!=]=)\\s*(?P<operand2>\\w+)\\s*(?P<logic_gate>and|or)?\\s*")
+	condition_regex.compile("(?P<operand1>\\w+)\\s*(?P<comparator>[<>!=]=)\\s*(?P<operand2>\\w+)\\s*(?P<logic_gate>and|or)?\\s*")
 	for condition in condition_regex.search_all(conditions):
+		print(str(len(condition.names)))
 		for key in condition.names:
-			print(key + ": " + str(condition.names[key]))
-			print("match: " + condition.strings[condition.names[key]])
+			print(key + ": " + condition.strings[condition.names[key]])
 	var indexInText = 0
-	# TODO how does branching work? what is the format of the returned thing? should it just check the vars here?
 	
+	
+	# global_val = get_value_by_global_id[operand1]
+	# check(global_val, comparator, operand2)
+	# 
+	
+	
+	# return next_slot
+	
+	# else return -1  # Didn't find anything
+	
+	# TODO how does branching work? what is the format of the returned thing? should it just check the vars here?
 
 
 func _play_node():
 	var text = _Story_Reader.get_text(_did, _nid)
-	var speaker = _get_tagged_text("speaker", text)
-	var dialog = _get_tagged_text("dialog", text)
-	var variables = [_get_tagged_text("var", text)]
+	var speaker = _get_tagged_text("speaker", text)[0]
+	var dialog = _get_tagged_text("dialog", text)[0]
+	var variables = _get_tagged_text("var", text)
 	var variable_map = _unpack_variables(variables)
 	_Game_State_Controller.update_variables(variable_map)
 	
 	# TODO LOTS LEFT TO DO HERE - this is j ust for texting
 	if "<if>" in text:
-		var conditional = _get_tagged_text("if", text)
-		_parse_conditionals(conditional)
+		var conditionals = _get_tagged_text("if", text)
+		print(conditionals)
+		_next_slot = -1 # _parse_conditionals(conditionals)
+		if _next_slot == -1:
+			_next_slot = int(_get_tagged_text("else", text)[0].strip_edges())
+	else:
+		_next_slot = 0
 
 	_Speaker_LBL.text = speaker
 	_Body_LBL.text = dialog
