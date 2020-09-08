@@ -38,7 +38,7 @@ story = {
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 880, 380 ),
+"graph_offset": Vector2( 820, 340 ),
 "links": {
 0: 4,
 1: 6
@@ -47,15 +47,12 @@ story = {
 "slot_amount": 2,
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>East/West equals North/South</dialog>
-<if>talked0 == false => 0</if>
-<if>talked1 == false => 0</if>
-<if>talked2 == false => 0</if>
-<if>talked3 == false => 0</if>
+<if>talked == false => 0</if>
 <else>1</else>",
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 1360, 380 ),
+"graph_offset": Vector2( 1440, 380 ),
 "links": {
 0: 5
 },
@@ -67,7 +64,7 @@ story = {
 "type": "line"
 },
 5: {
-"graph_offset": Vector2( 1900, 440 ),
+"graph_offset": Vector2( 2020, 520 ),
 "links": {
 
 },
@@ -77,7 +74,7 @@ story = {
 "type": "line"
 },
 6: {
-"graph_offset": Vector2( 1380, 600 ),
+"graph_offset": Vector2( 1360, 580 ),
 "links": {
 0: 5
 },

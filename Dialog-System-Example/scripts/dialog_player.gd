@@ -82,42 +82,43 @@ func _get_tagged_text(tag : String, text : String):
 	for content in tagged_regex.search_all(text):
 		results.append(content.strings[1])
 	return results
-		
-	# TODO return multiple results if found
-	var start_tag = "<" + tag + ">"
-	var end_tag = "</" + tag + ">"
-	var start_index = text.find(start_tag) + start_tag.length()
-	var end_index = text.find(end_tag)
-	var substr_length = end_index - start_index
-	return text.substr(start_index, substr_length)
-	
-func _parse_conditionals(text : String):
-	var text_split = text.split("=>")
-	if len(text_split) < 2:
-		print("Need a => character in conditional " + text)
-		return
-	var conditions = text_split[0].strip_edges()
-	var destination = text_split[1].strip_edges()
 
-	var condition_regex = RegEx.new()
-	condition_regex.compile("(?P<operand1>\\w+)\\s*(?P<comparator>[<>!=]=)\\s*(?P<operand2>\\w+)\\s*(?P<logic_gate>and|or)?\\s*")
-	for condition in condition_regex.search_all(conditions):
-		print(str(len(condition.names)))
-		for key in condition.names:
-			print(key + ": " + condition.strings[condition.names[key]])
-	var indexInText = 0
-	
-	
-	# global_val = get_value_by_global_id[operand1]
-	# check(global_val, comparator, operand2)
-	# 
-	
-	
-	# return next_slot
-	
-	# else return -1  # Didn't find anything
-	
-	# TODO how does branching work? what is the format of the returned thing? should it just check the vars here?
+
+func _parse_conditionals(conditionals : Array):
+	for conditional in conditionals:
+		var text_split = conditional.split("=>")
+		if len(text_split) < 2:
+			# TODO: Make it an error?
+			print("Error: Need a => character in conditional " + conditional)
+			return
+		var conditions = text_split[0].strip_edges()
+		var destination = text_split[1].strip_edges()
+		var condition_regex = RegEx.new()
+		condition_regex.compile("(?P<operand1>\\w+)\\s*(?P<comparator>[<>!=]=)\\s*(?P<operand2>\\w+)\\s*(?P<logic_gate>and|or)?\\s*")
+		for condition in condition_regex.search_all(conditions):
+			if _parse_conditional(condition.strings[condition.names["operand1"]], condition.strings[condition.names["comparator"]], condition.strings[condition.names["operand2"]]):
+				return int(destination)
+	return -1
+
+
+func _parse_conditional(operand1 : String, comparator : String, operand2 : String):
+	# TODO: Fix this!!
+	# We need to initialize things and/or also compare against capital F false?
+	# Just, do better... In general.
+	var operand1_val = str(_Game_State_Controller.get(operand1, false)).to_lower()
+	print(operand1_val)
+	if comparator == "==":
+		return operand1_val == operand2
+	elif comparator == "!=":
+		return operand1_val != operand2
+	elif comparator == ">=":
+		return int(operand1_val) >= int(operand2)
+	elif comparator == "<=":
+		return int(operand1_val) <= int(operand2)
+	else:
+		# TODO: Make it an error?
+		print("Error: Invalid comparator found within conditional!")
+	return false
 
 
 func _play_node():
@@ -131,8 +132,7 @@ func _play_node():
 	# TODO LOTS LEFT TO DO HERE - this is j ust for texting
 	if "<if>" in text:
 		var conditionals = _get_tagged_text("if", text)
-		print(conditionals)
-		_next_slot = -1 # _parse_conditionals(conditionals)
+		_next_slot = _parse_conditionals(conditionals)
 		if _next_slot == -1:
 			_next_slot = int(_get_tagged_text("else", text)[0].strip_edges())
 	else:
