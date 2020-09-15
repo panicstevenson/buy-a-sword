@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+var _Game_State_Controller
+
 export var speed = 400  # How fast the player will move (pixels/sec).
 export var jump = -700
 export var gravity = 2500
@@ -19,6 +21,7 @@ signal PLAYER_OCCUPIED(is_occupied)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	_Game_State_Controller = get_node("/root/GameStateController")
 
 
 func _on_Interactable_entered(interactable: Interactable):
@@ -31,7 +34,12 @@ func _on_Interactable_exited(interactable: Interactable):
 	interactable.set_visible(false)
 	touching = null
 	_set_occupied(false)
-
+	
+func _on_pickup(pickup: Pickup):
+	print("picked up: " + pickup.name)
+	var current = _Game_State_Controller.get(pickup.story_variable, 0)
+	current += pickup.value
+	_Game_State_Controller.update_variable(pickup.story_variable, current)
 
 func _process(_delta):
 	if not touching:

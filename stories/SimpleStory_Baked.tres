@@ -24,11 +24,15 @@ story = {
 3: {
 "links": {
 0: 4,
-1: 6
+1: 6,
+2: 7,
+3: 8
 },
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>East/West equals North/South</dialog>
-<if>talked == false => 0</if>
+<if>cash >= 10 => 3</if>
+<if>talked == 0 => 0</if>
+<if>talked == 2 => 2</if>
 <else>1</else>"
 },
 4: {
@@ -37,7 +41,7 @@ story = {
 },
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>Hmmm...</dialog>
-<var>talked = true</var>"
+<var>talked = 1</var>"
 },
 5: {
 "links": {
@@ -51,7 +55,23 @@ story = {
 },
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>Stop talking to me, thanks</dialog>
-<var>talked = false</var>"
+<var>talked = 2</var>"
+},
+7: {
+"links": {
+0: 5
+},
+"text": "<speaker>World's Strongest Boy</speaker>
+<dialog>WOW GET OUT OF MY FACE, DAMN</dialog>
+<var>talked = 0</var>"
+},
+8: {
+"links": {
+0: 5
+},
+"text": "<speaker>World's Strongest Boy</speaker>
+<dialog>You are so rich :O</dialog>
+"
 }
 }
 },

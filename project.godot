@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://Interactable.gd"
+}, {
+"base": "Area2D",
+"class": "Pickup",
+"language": "GDScript",
+"path": "res://items/Pickup.gd"
 } ]
 _global_script_class_icons={
 "Dialogueable": "",
-"Interactable": ""
+"Interactable": "",
+"Pickup": ""
 }
 
 [application]

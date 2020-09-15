@@ -38,16 +38,20 @@ story = {
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 820, 340 ),
+"graph_offset": Vector2( 820, 360 ),
 "links": {
 0: 4,
-1: 6
+1: 6,
+2: 7,
+3: 8
 },
 "rect_size": Vector2( 521.833, 222.833 ),
-"slot_amount": 2,
+"slot_amount": 4,
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>East/West equals North/South</dialog>
-<if>talked == false => 0</if>
+<if>cash >= 10 => 3</if>
+<if>talked == 0 => 0</if>
+<if>talked == 2 => 2</if>
 <else>1</else>",
 "type": "line"
 },
@@ -60,7 +64,7 @@ story = {
 "slot_amount": 1,
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>Hmmm...</dialog>
-<var>talked = true</var>",
+<var>talked = 1</var>",
 "type": "line"
 },
 5: {
@@ -82,7 +86,31 @@ story = {
 "slot_amount": 1,
 "text": "<speaker>World's Strongest Boy</speaker>
 <dialog>Stop talking to me, thanks</dialog>
-<var>talked = false</var>",
+<var>talked = 2</var>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 1400, 780 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>World's Strongest Boy</speaker>
+<dialog>WOW GET OUT OF MY FACE, DAMN</dialog>
+<var>talked = 0</var>",
+"type": "line"
+},
+8: {
+"graph_offset": Vector2( 1400, 940 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>World's Strongest Boy</speaker>
+<dialog>You are so rich :O</dialog>
+",
 "type": "line"
 }
 }

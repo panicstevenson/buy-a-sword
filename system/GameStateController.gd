@@ -4,9 +4,12 @@ extends Node2D
 var VARIABLES = {}
 
 func _ready():
-	print("Life begins.")
+	print("Life begins. :(")
+	VARIABLES["talked"] = "0"
 	pass
 
+func update_variable(story_var, value):
+	update_variables({story_var: value})
 
 func update_variables(assignments):
 	for key in assignments.keys():
