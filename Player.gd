@@ -40,7 +40,8 @@ func _on_pickup(pickup: Pickup):
 	var current = _Game_State_Controller.get(pickup.story_variable, 0)
 	current += pickup.value
 	_Game_State_Controller.update_variable(pickup.story_variable, current)
-	$PickupSound.play()
+	$PickupSound.play() # TODO: Move to global soundboi
+
 
 func _process(_delta):
 	if not touching:
