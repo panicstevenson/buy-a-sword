@@ -11,12 +11,11 @@ var max_health = 100
 var health = 100
 
 var touching = null
+var occupied_by = null
 
 var jumping = false
 var velocity = Vector2.ZERO
 
-var is_occupied = false
-signal PLAYER_OCCUPIED(is_occupied)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,8 +32,8 @@ func _on_Interactable_exited(interactable: Interactable):
 	print("exited: " + interactable.name)
 	interactable.set_visible(false)
 	touching = null
-	_set_occupied(false)
-	
+
+
 func _on_pickup(pickup: Pickup):
 	print("picked up: " + pickup.name)
 	var current = _Game_State_Controller.get(pickup.story_variable, 0)
@@ -44,7 +43,7 @@ func _on_pickup(pickup: Pickup):
 
 
 func _process(_delta):
-	if not touching:
+	if touching == null:
 		return
 	touching.set_visible(true)
 
@@ -53,19 +52,19 @@ func get_input():
 	velocity.x = 0
 	jumping = false
 	if Input.is_action_pressed("ui_right"):
-		if not is_occupied:
+		if occupied_by == null:
 			velocity.x += speed
 	if Input.is_action_pressed("ui_left"):
-		if not is_occupied:
+		if occupied_by == null:
 			velocity.x -= speed
 	if Input.is_action_just_pressed("ui_up"):
-		if not touching:
+		if touching == null:
 			return
-		if is_occupied:
+		if occupied_by != null:
 			if not touching.interact():
-				_set_occupied(false)
+				_set_occupied_by(null)
 		else:
-			_set_occupied(true)
+			_set_occupied_by(touching)
 			touching.interact()
 
 
@@ -80,7 +79,7 @@ func _physics_process(delta):
 			var _reload = get_tree().reload_current_scene()
 
 	if Input.is_action_just_pressed('ui_select'):
-		if is_on_floor() and not is_occupied:
+		if is_on_floor() and occupied_by == null:
 			velocity.y = jump
 
 	if velocity.x != 0:
@@ -92,7 +91,7 @@ func _physics_process(delta):
 			$SpriteFlip.scale.x = 1
 	else:
 		$SpriteFlip/AnimatedSprite.stop()
-		
-func _set_occupied(occupied):
-	is_occupied = occupied
-	emit_signal("PLAYER_OCCUPIED", is_occupied)
+
+
+func _set_occupied_by(occupier):
+	occupied_by = occupier

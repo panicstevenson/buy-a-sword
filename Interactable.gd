@@ -8,7 +8,6 @@ var letter = "Interactable"
 const bubble_scene = preload("res://Bubble.tscn")
 var bubble = bubble_scene.instance()
 var show_bubble = false
-var player_occupied = false
 
 var Player = null
 
@@ -23,7 +22,6 @@ func _init():
 
 func _ready():
 	Player = get_parent().find_node("Player")
-	var _player_occupied = Player.connect("PLAYER_OCCUPIED", self, "_set_Player_occupied")
 	var _interactable_entered = connect("interactable_entered", Player, "_on_Interactable_entered")
 	var _interactable_exited = connect("interactable_exited", Player, "_on_Interactable_exited")
 	add_child(bubble)
@@ -31,7 +29,7 @@ func _ready():
 
 
 func _process(_delta):
-	if show_bubble and not player_occupied:
+	if show_bubble and Player.occupied_by == null:
 		bubble.show()
 	else:
 		bubble.hide()
@@ -47,12 +45,6 @@ func _on_Interactable_body_exited(body: Node2D):
 		emit_signal("interactable_exited", self)
 
 
-func _set_Player_occupied(is_occupied: bool):
-	player_occupied = is_occupied
-	if player_occupied:
-		print("player is occupied " + self.name)
-
-
 func set_visible(is_visible: bool):
 	show_bubble = is_visible
 
@@ -61,4 +53,4 @@ func set_visible(is_visible: bool):
 func interact():
 	# do_interaction()
 	# TODO: Figure out if an interaction should ever be blocking
-	return not player_occupied
+	return Player.occupied_by == null
