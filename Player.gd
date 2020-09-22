@@ -58,14 +58,14 @@ func get_input():
 		if occupied_by == null:
 			velocity.x -= speed
 	if Input.is_action_just_pressed("ui_up"):
-		if touching == null:
-			return
 		if occupied_by != null:
-			if not touching.interact():
+			if not occupied_by.interact():
 				_set_occupied_by(null)
-		else:
+		elif touching != null:
 			_set_occupied_by(touching)
-			touching.interact()
+			occupied_by.interact()
+		else:
+			pass
 
 
 func _physics_process(delta):
