@@ -109,7 +109,8 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>World's Strongest Boy</speaker>
-<dialog>You are so rich :O</dialog>
+<dialog>HAHAHA THAT'S MINE NOW</dialog>
+<var>cash -= 5</var>
 ",
 "type": "line"
 }

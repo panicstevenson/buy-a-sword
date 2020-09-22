@@ -147,8 +147,22 @@ func _unpack_variables(variables):
 	for variable in variables:
 		if not variable:
 			continue
-		var var_name = variable.split("=")[0].strip_edges()
-		var var_value = variable.split("=")[1].strip_edges()
-		# TODO: Parse the value's type (Number, String, Boolean, Counter)
-		variable_map[var_name] = var_value
+		var variable_regex = RegEx.new()
+		variable_regex.compile("(?P<var_name>\\w+)\\s*(?P<operator>[+-]?=)\\s*(?P<var_value>\\w+)")
+		var result = variable_regex.search(variable)
+		var var_name = result.get_string("var_name").strip_edges()
+		var operator = result.get_string("operator").strip_edges()
+		var var_value = result.get_string("var_value").strip_edges()
+		# TODO: Parse the value's type (Number, String, Boolean)
+		if operator == "=":
+			variable_map[var_name] = var_value
+		else:
+			var existing_value = int(_Game_State_Controller.get(var_name, 0))
+			if operator == "+=":
+				variable_map[var_name] = existing_value + int(var_value)
+			elif operator == "-=":
+				variable_map[var_name] = existing_value - int(var_value)
+			else:
+				# TODO: Make it an error?
+				print("Error: Invalid operator found within variable!")
 	return variable_map

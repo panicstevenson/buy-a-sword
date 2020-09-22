@@ -70,7 +70,8 @@ story = {
 0: 5
 },
 "text": "<speaker>World's Strongest Boy</speaker>
-<dialog>You are so rich :O</dialog>
+<dialog>HAHAHA THAT'S MINE NOW</dialog>
+<var>cash -= 5</var>
 "
 }
 }
