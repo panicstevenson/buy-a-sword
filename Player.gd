@@ -76,7 +76,7 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "HazardTileMap":
-			var _reload = get_tree().reload_current_scene()
+			position = Vector2(100, 250)
 
 	if Input.is_action_just_pressed('ui_select'):
 		if is_on_floor() and occupied_by == null:
