@@ -7,9 +7,6 @@ export var jump = -700
 export var gravity = 2500
 var screen_size  # Size of the game window.
 
-var max_health = 100
-var health = 100
-
 var touching = null
 var occupied_by = null
 
@@ -76,6 +73,8 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "HazardTileMap":
+			_Game_State_Controller.change_health(-20)
+			# TODO: Create reset function
 			position = Vector2(100, 250)
 
 	if Input.is_action_just_pressed('ui_select'):
