@@ -2,11 +2,16 @@
 
 importer="texture"
 type="StreamTexture"
-valid=false
+path="res://.import/bandage.png-eb99996d39c9b0476fa902b1f8da21bc.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://items/bandage.png"
+dest_files=[ "res://.import/bandage.png-eb99996d39c9b0476fa902b1f8da21bc.stex" ]
+
 [params]
 
 compress/mode=0
