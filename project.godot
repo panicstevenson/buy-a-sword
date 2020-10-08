@@ -28,12 +28,18 @@ _global_script_classes=[ {
 "class": "Pickup",
 "language": "GDScript",
 "path": "res://items/Pickup.gd"
+}, {
+"base": "Control",
+"class": "SwordMapUI",
+"language": "GDScript",
+"path": "res://ui/SwordMapUI.gd"
 } ]
 _global_script_class_icons={
 "Dialogueable": "",
 "HealthPickup": "",
 "Interactable": "",
-"Pickup": ""
+"Pickup": "",
+"SwordMapUI": ""
 }
 
 [application]
