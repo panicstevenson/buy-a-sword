@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://ForegroundTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/DialogueUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://ui/GUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://items/bandage.tscn" type="PackedScene" id=12]
 [ext_resource path="res://house.tscn" type="PackedScene" id=13]
 [ext_resource path="res://tilesets/towntiles.png" type="Texture" id=14]
 [ext_resource path="res://items/cash.tscn" type="PackedScene" id=15]
@@ -132,6 +133,9 @@ position = Vector2( 865.769, 258.86 )
 
 [node name="Cash5" parent="." instance=ExtResource( 15 )]
 position = Vector2( 965.492, 315.369 )
+
+[node name="Bandage" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1784.14, 304.085 )
 
 [editable path="HouseInside_TileMap"]
 
