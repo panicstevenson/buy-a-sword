@@ -35,7 +35,8 @@ func get_health():
 func set_health(health):
 	if health <= 0:
 		update_variable(HEALTH, 0)
-		# TODO: die()
+		print("Game Over.")
+		get_tree().quit()
 	elif health > MAX_HEALTH:
 		update_variable(HEALTH, MAX_HEALTH)
 	else:
