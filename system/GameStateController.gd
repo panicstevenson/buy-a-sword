@@ -11,7 +11,7 @@ signal variables_updated(assignments)
 
 func _ready():
 	print("Life begins. :(")
-	VARIABLES["talked"] = "0"
+	VARIABLES["bought"] = "0"
 	VARIABLES[HEALTH] = MAX_HEALTH
 	pass
 

@@ -120,22 +120,22 @@ visible = false
 [node name="GUI" parent="." instance=ExtResource( 11 )]
 
 [node name="Cash" parent="." instance=ExtResource( 15 )]
-position = Vector2( 296.239, 312.045 )
+position = Vector2( 1052.54, 324.615 )
 
 [node name="Cash2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 473.525, 315.369 )
 
 [node name="Cash3" parent="." instance=ExtResource( 15 )]
-position = Vector2( 672.971, 244.455 )
+position = Vector2( 692.524, 256.327 )
 
 [node name="Cash4" parent="." instance=ExtResource( 15 )]
-position = Vector2( 865.769, 258.86 )
+position = Vector2( 904.178, 223.943 )
 
 [node name="Cash5" parent="." instance=ExtResource( 15 )]
-position = Vector2( 965.492, 315.369 )
+position = Vector2( 1778.36, 325.844 )
 
 [node name="Bandage" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1784.14, 304.085 )
+position = Vector2( 1848.39, 12.18 )
 
 [editable path="HouseInside_TileMap"]
 

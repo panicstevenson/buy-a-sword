@@ -11,64 +11,64 @@ names = {
 }
 story = {
 1: {
-"available_nid": [  ],
+"available_nid": [ 7, 8, 10 ],
 "groups": [  ],
 "human_readable_description": "Waking up in the sleepy starting village.",
 "name": "Village/Start",
 "nodes": {
 1: {
-"graph_offset": Vector2( 20, 40 ),
+"graph_offset": Vector2( -60, 20 ),
 "links": {
-0: 2
+0: 2,
+1: 9
 },
-"rect_size": Vector2( 324, 137 ),
-"slot_amount": 1,
-"text": "<start>",
+"rect_size": Vector2( 449, 186 ),
+"slot_amount": 2,
+"text": "<start>
+<if>bought == 0 => 0</if>
+<else>1</else>",
 "type": "line"
 },
 2: {
-"graph_offset": Vector2( 380, 220 ),
+"graph_offset": Vector2( 420, 20 ),
 "links": {
 0: 3
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>They say don't ever meet your heroes.</dialog>",
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Swords for sale! 5 emeralds!</dialog>",
 "type": "line"
 },
 3: {
-"graph_offset": Vector2( 820, 360 ),
+"graph_offset": Vector2( 880, 20 ),
 "links": {
 0: 4,
-1: 6,
-2: 7,
-3: 8
+1: 6
 },
-"rect_size": Vector2( 521.833, 222.833 ),
-"slot_amount": 4,
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>East/West equals North/South</dialog>
-<if>cash >= 10 => 3</if>
-<if>talked == 0 => 0</if>
-<if>talked == 2 => 2</if>
+"rect_size": Vector2( 542.737, 250.688 ),
+"slot_amount": 2,
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Would you like to buy one?</dialog>
+<if>cash >= 5 => 0</if>
 <else>1</else>",
 "type": "line"
 },
 4: {
-"graph_offset": Vector2( 1440, 380 ),
+"graph_offset": Vector2( 1480, 20 ),
 "links": {
 0: 5
 },
 "rect_size": Vector2( 487.167, 200 ),
 "slot_amount": 1,
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>Hmmm...</dialog>
-<var>talked = 1</var>",
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Sold! No refunds.</dialog>
+<var>cash -= 5</var>
+<var>bought = 1</var>",
 "type": "line"
 },
 5: {
-"graph_offset": Vector2( 2020, 520 ),
+"graph_offset": Vector2( 2140, 220 ),
 "links": {
 
 },
@@ -78,40 +78,26 @@ story = {
 "type": "line"
 },
 6: {
-"graph_offset": Vector2( 1360, 580 ),
+"graph_offset": Vector2( 1480, 240 ),
 "links": {
 0: 5
 },
 "rect_size": Vector2( 484, 173 ),
 "slot_amount": 1,
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>Stop talking to me, thanks</dialog>
-<var>talked = 2</var>",
-"type": "line"
-},
-7: {
-"graph_offset": Vector2( 1400, 780 ),
-"links": {
-0: 5
-},
-"rect_size": Vector2( 324, 137 ),
-"slot_amount": 1,
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>WOW GET OUT OF MY FACE, DAMN</dialog>
-<var>talked = 0</var>",
-"type": "line"
-},
-8: {
-"graph_offset": Vector2( 1400, 940 ),
-"links": {
-0: 5
-},
-"rect_size": Vector2( 324, 137 ),
-"slot_amount": 1,
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>HAHAHA THAT'S MINE NOW</dialog>
-<var>cash -= 5</var>
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Too poor! Sorry. :)</dialog>
 ",
+"type": "line"
+},
+9: {
+"graph_offset": Vector2( 1480, 440 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 483.002, 153 ),
+"slot_amount": 1,
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Sword MAPs for sale! Errr..\\nActually we're all sold out. Enjoy your map!</dialog>",
 "type": "line"
 }
 }

@@ -10,38 +10,38 @@ story = {
 "nodes": {
 1: {
 "links": {
-0: 2
+0: 2,
+1: 9
 },
-"text": "<start>"
+"text": "<start>
+<if>bought == 0 => 0</if>
+<else>1</else>"
 },
 2: {
 "links": {
 0: 3
 },
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>They say don't ever meet your heroes.</dialog>"
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Swords for sale! 5 emeralds!</dialog>"
 },
 3: {
 "links": {
 0: 4,
-1: 6,
-2: 7,
-3: 8
+1: 6
 },
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>East/West equals North/South</dialog>
-<if>cash >= 10 => 3</if>
-<if>talked == 0 => 0</if>
-<if>talked == 2 => 2</if>
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Would you like to buy one?</dialog>
+<if>cash >= 5 => 0</if>
 <else>1</else>"
 },
 4: {
 "links": {
 0: 5
 },
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>Hmmm...</dialog>
-<var>talked = 1</var>"
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Sold! No refunds.</dialog>
+<var>cash -= 5</var>
+<var>bought = 1</var>"
 },
 5: {
 "links": {
@@ -53,26 +53,16 @@ story = {
 "links": {
 0: 5
 },
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>Stop talking to me, thanks</dialog>
-<var>talked = 2</var>"
-},
-7: {
-"links": {
-0: 5
-},
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>WOW GET OUT OF MY FACE, DAMN</dialog>
-<var>talked = 0</var>"
-},
-8: {
-"links": {
-0: 5
-},
-"text": "<speaker>World's Strongest Boy</speaker>
-<dialog>HAHAHA THAT'S MINE NOW</dialog>
-<var>cash -= 5</var>
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Too poor! Sorry. :)</dialog>
 "
+},
+9: {
+"links": {
+0: 5
+},
+"text": "<speaker>Shopkeep</speaker>
+<dialog>Sword MAPs for sale! Errr..\\nActually we're all sold out. Enjoy your map!</dialog>"
 }
 }
 },
