@@ -142,7 +142,7 @@ func _play_node():
 	if _get_tagged_text("speaker", text):
 		_Speaker_LBL.text = _get_tagged_text("speaker", text)[0]
 	if _get_tagged_text("dialog", text):
-		_Body_LBL.text = _get_tagged_text("dialog", text)[0]
+		_Body_LBL.text = _get_tagged_text("dialog", text)[0].replace('\\n', '\n');
 	_Body_AnimationPlayer.play("TextDisplay")
 
 func _unpack_variables(variables):
