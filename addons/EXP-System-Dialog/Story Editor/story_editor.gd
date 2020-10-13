@@ -284,6 +284,8 @@ func _on_Save_CVS_As_file_selected(filepath : String):
 func _on_Save_Story_As_file_selected(filename : String):
 	self._save_data_to(filename)
 	self._Filename_LBL.text = filename.get_file()
+	# CHRIS EDIT
+	self._bake_data_to(filename.replace(".tres", "_Baked.tres"))
 
 
 func _on_Save_Story_BTN_pressed():
