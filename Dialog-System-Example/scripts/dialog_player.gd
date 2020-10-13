@@ -54,6 +54,9 @@ func play_dialog(record_name : String):
 	_did = _Story_Reader.get_did_via_record_name(record_name)
 	_nid = self._Story_Reader.get_nid_via_exact_text(_did, "<start>")
 	_final_nid = _Story_Reader.get_nid_via_exact_text(_did, "<end>")
+	# Setup
+	_play_node()
+	# Actually do
 	_get_next_node()
 	_play_node()
 	_Dialog_Box.visible = true
@@ -123,8 +126,6 @@ func _parse_conditional(operand1 : String, comparator : String, operand2 : Strin
 
 func _play_node():
 	var text = _Story_Reader.get_text(_did, _nid)
-	var speaker = _get_tagged_text("speaker", text)[0]
-	var dialog = _get_tagged_text("dialog", text)[0]
 	var variables = _get_tagged_text("var", text)
 	var variable_map = _unpack_variables(variables)
 	_Game_State_Controller.update_variables(variable_map)
@@ -138,8 +139,10 @@ func _play_node():
 	else:
 		_next_slot = 0
 
-	_Speaker_LBL.text = speaker
-	_Body_LBL.text = dialog
+	if _get_tagged_text("speaker", text):
+		_Speaker_LBL.text = _get_tagged_text("speaker", text)[0]
+	if _get_tagged_text("dialog", text):
+		_Body_LBL.text = _get_tagged_text("dialog", text)[0]
 	_Body_AnimationPlayer.play("TextDisplay")
 
 func _unpack_variables(variables):

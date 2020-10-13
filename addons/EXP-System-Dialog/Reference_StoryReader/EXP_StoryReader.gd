@@ -24,7 +24,7 @@ func get_nid_via_exact_text(did : int, query : String) -> int:
 	assert(self.has_did(did))
 	
 	for nid in self._story[did]["nodes"].keys():
-		if self._story[did]["nodes"][nid]["text"] == query:
+		if query in self._story[did]["nodes"][nid]["text"]:
 			return nid
 	return -1
 
