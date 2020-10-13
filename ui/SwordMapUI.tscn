@@ -32,10 +32,13 @@ margin_bottom = 248.185
 texture = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 18.2719
-margin_top = -15.0942
+margin_left = 22.0
+margin_top = -8.0
 margin_right = 371.272
 margin_bottom = 19.9058
 custom_fonts/normal_font = ExtResource( 3 )
-text = "WOULD YOU LIKE TO SAVE YOUR SCENE OR BAKE YOUR SCENE"
+text = "PRESS TAB TO VIEW THE MAP"
 scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
