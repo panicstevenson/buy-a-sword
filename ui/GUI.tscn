@@ -29,8 +29,8 @@ money_story_var = "cash"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="SwordMapUI" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_left = 33.6526
-margin_top = 100.43
+margin_left = 20.0
+margin_top = 80.0
 margin_right = 33.6526
 margin_bottom = 100.43
 

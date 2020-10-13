@@ -129,7 +129,7 @@ position = Vector2( 473.525, 315.369 )
 position = Vector2( 692.524, 256.327 )
 
 [node name="Cash4" parent="." instance=ExtResource( 15 )]
-position = Vector2( 904.178, 223.943 )
+position = Vector2( 904.178, 187.629 )
 
 [node name="Cash5" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1778.36, 325.844 )
