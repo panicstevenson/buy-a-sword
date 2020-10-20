@@ -119,6 +119,9 @@ visible = false
 [node name="SceneTransition" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1859.29, 301.689 )
 
+[node name="Candy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1128.53, 150.894 )
+
 [node name="Candy2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 427.792, 212.905 )
 
@@ -173,8 +176,8 @@ position = Vector2( 1503.46, -176.411 )
 [node name="Candy19" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1763.45, 72.7474 )
 
-[node name="Candy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1128.53, 150.894 )
+[node name="Candy20" parent="." instance=ExtResource( 9 )]
+position = Vector2( 824, -295.889 )
 
 [editable path="HouseInside_TileMap"]
 
