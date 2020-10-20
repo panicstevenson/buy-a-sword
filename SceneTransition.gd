@@ -15,6 +15,11 @@ func _ready():
 	Player = get_parent().find_node("Player")
 	detectArea.connect("body_entered", self, "_on_Area2D_body_entered")
 	detectArea.connect("body_exited", self, "_on_Area2D_body_exited")
+	
+	
+func _process(delta):
+	if Input.is_action_just_pressed("ui_page_up"):
+		get_tree().change_scene(nextScenePath)
 
 func _on_Area2D_body_entered(body: Node2D):
 	if (body == Player):
@@ -23,4 +28,4 @@ func _on_Area2D_body_entered(body: Node2D):
 
 func _on_Area2D_body_exited(body: Node2D):
 	if (body == Player):
-		print("exit the scene transition")
+		pass # no
