@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://ui/assets/label_HP_bg.png" type="Texture" id=1]
 [ext_resource path="res://ui/assets/energy_bar_bg.png" type="Texture" id=2]
 [ext_resource path="res://fonts/Comfortaa-Bold.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://ui/assets/label_HP.png" type="Texture" id=4]
-[ext_resource path="res://ui/assets/emeralds_icon.png" type="Texture" id=5]
+[ext_resource path="res://items/cash.png" type="Texture" id=5]
 [ext_resource path="res://ui/assets/energy_bar_fill.png" type="Texture" id=6]
 [ext_resource path="res://ui/GUI.gd" type="Script" id=7]
 [ext_resource path="res://ui/SwordMapUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://items/cash2.png" type="Texture" id=9]
+[ext_resource path="res://ui/StoryVarReadout.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 24
@@ -24,7 +26,6 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-money_story_var = "cash"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -47,7 +48,7 @@ __meta__ = {
 
 [node name="Bars" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
 margin_right = 616.0
-margin_bottom = 53.0
+margin_bottom = 94.0
 size_flags_horizontal = 3
 
 [node name="Bar" type="HBoxContainer" parent="CanvasLayer/HBoxContainer/Bars"]
@@ -97,15 +98,18 @@ value = 50.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 6 )
 
-[node name="Counters" type="HBoxContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="Counters" type="VBoxContainer" parent="CanvasLayer/HBoxContainer"]
 margin_left = 620.0
 margin_right = 720.0
-margin_bottom = 40.0
+margin_bottom = 94.0
 size_flags_vertical = 0
 
 [node name="Counter" type="MarginContainer" parent="CanvasLayer/HBoxContainer/Counters"]
 margin_right = 100.0
 margin_bottom = 40.0
+script = ExtResource( 10 )
+label_node_path = NodePath("Background/Number")
+story_var = "cash"
 
 [node name="Background" type="NinePatchRect" parent="CanvasLayer/HBoxContainer/Counters/Counter"]
 margin_right = 100.0
@@ -117,18 +121,64 @@ texture = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 40.0
-margin_top = -12.0
-margin_right = 20.0
-margin_bottom = 28.0
+margin_top = -4.0
+margin_bottom = 16.0
 rect_rotation = 0.118573
 rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 5 )
-stretch_mode = 4
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Number" type="Label" parent="CanvasLayer/HBoxContainer/Counters/Counter/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 1 )
+text = "10"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="CanvasLayer/HBoxContainer/Counters"]
+margin_top = 44.0
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 6 )
+
+[node name="Counter2" type="MarginContainer" parent="CanvasLayer/HBoxContainer/Counters"]
+margin_top = 54.0
+margin_right = 100.0
+margin_bottom = 94.0
+script = ExtResource( 10 )
+show_if_zero = false
+label_node_path = NodePath("Background/Number")
+story_var = "candy"
+
+[node name="Background" type="NinePatchRect" parent="CanvasLayer/HBoxContainer/Counters/Counter2"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+texture = ExtResource( 1 )
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/HBoxContainer/Counters/Counter2/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -4.0
+margin_bottom = 16.0
+rect_rotation = 0.118573
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 9 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="Label" parent="CanvasLayer/HBoxContainer/Counters/Counter2/Background"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 6.0

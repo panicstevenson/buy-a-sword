@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://items/cash2.png" type="Texture" id=1]
+[ext_resource path="res://items/cash.tscn" type="PackedScene" id=2]
+
+[node name="Candy" instance=ExtResource( 2 )]
+story_variable = "candy"
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 1 )
