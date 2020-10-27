@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Interactable",
 "class": "Dialogueable",
 "language": "GDScript",
-"path": "res://Dialogueable.gd"
+"path": "res://scripts/Dialogueable.gd"
 }, {
 "base": "Area2D",
 "class": "Floatable",
 "language": "GDScript",
-"path": "res://Floatable.gd"
+"path": "res://scripts/Floatable.gd"
 }, {
 "base": "Area2D",
 "class": "HealthPickup",
@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
-"path": "res://Interactable.gd"
+"path": "res://scripts/Interactable.gd"
 }, {
 "base": "Floatable",
 "class": "Pickup",
@@ -37,7 +37,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "SceneTransition",
 "language": "GDScript",
-"path": "res://SceneTransition.gd"
+"path": "res://scripts/SceneTransition.gd"
 }, {
 "base": "Control",
 "class": "SwordMapUI",
@@ -91,4 +91,4 @@ key_action={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://scenes/default_env.tres"
