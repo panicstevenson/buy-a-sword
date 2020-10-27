@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/ForegroundTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://objects/Candy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/ui/DialogueUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/ui/GUI.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/better_shop.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scenes/house.tscn" type="PackedScene" id=13]
 [ext_resource path="res://tilesets/towntiles.png" type="Texture" id=14]
 [ext_resource path="res://scenes/SceneTransition.tscn" type="PackedScene" id=16]
@@ -80,6 +81,10 @@ z_index = -1
 cell_size = Vector2( 16, 16 )
 tile_data = PoolIntArray( 786478, 2, 0, 786479, 0, 0, 786480, 0, 0, 786481, 0, 0, 786482, 0, 0, 786483, 0, 0, 786484, 0, 0, 786485, 0, 0, 786486, 2, 0, 852014, 2, 0, 852015, 2, 0, 852016, 2, 0, 852017, 2, 0, 852018, 1, 0, 852019, 2, 0, 852020, 2, 0, 852021, 2, 0, 852022, 2, 0 )
 
+[node name="better_shop" parent="." instance=ExtResource( 12 )]
+position = Vector2( 858.281, -648.242 )
+z_index = -2
+
 [node name="Sword" parent="." instance=ExtResource( 5 )]
 position = Vector2( 808.203, -343.592 )
 
@@ -93,21 +98,23 @@ position = Vector2( 1278, 306.453 )
 dialogue_tree = "Village/Start"
 
 [node name="most_important_npc2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 704.199, -283.564 )
+position = Vector2( 1622.69, -424.186 )
 dialogue_tree = "Village/Start"
+
+[node name="SpriteFlip" parent="most_important_npc2" index="0"]
+scale = Vector2( -1, 1 )
 
 [node name="AnimatedSprite" parent="most_important_npc2/SpriteFlip" index="0"]
 animation = "stanWizard"
 
 [node name="HouseInside_TileMap" parent="." instance=ExtResource( 13 )]
-position = Vector2( 600, -200 )
+position = Vector2( 655.772, -230.147 )
 tile_set = SubResource( 1 )
 
 [node name="TileMap" parent="HouseInside_TileMap" index="0"]
 tile_set = SubResource( 2 )
 
 [node name="Exterior" parent="HouseInside_TileMap" index="1"]
-visible = false
 tile_set = SubResource( 2 )
 
 [node name="DialogueUI" parent="." instance=ExtResource( 10 )]
