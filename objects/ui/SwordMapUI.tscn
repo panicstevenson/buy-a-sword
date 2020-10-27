@@ -1,12 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://sprites/good_sword.png" type="Texture" id=1]
+[ext_resource path="res://sprites/swords/sword5.png" type="Texture" id=1]
 [ext_resource path="res://sprites/ui/sword_map.png" type="Texture" id=2]
 [ext_resource path="res://fonts/boxy_bold.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scripts/ui/SwordMapUI.gd" type="Script" id=4]
-
-
-
 
 [node name="SwordMapUI" type="Control"]
 anchor_right = 1.0
@@ -19,12 +16,15 @@ smallSwordNodePath = NodePath("SmallSword")
 bigSwordNodePath = NodePath("BigSword")
 
 [node name="SmallSword" type="TextureRect" parent="."]
-margin_left = -10.0
-margin_top = -10.0
-margin_right = 11.0
-margin_bottom = 11.0
+margin_left = -16.0
+margin_top = -16.0
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 stretch_mode = 1
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BigSword" type="TextureRect" parent="."]
 visible = false
