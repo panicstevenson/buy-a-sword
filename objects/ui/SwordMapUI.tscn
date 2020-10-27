@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/good_sword.png" type="Texture" id=1]
+[ext_resource path="res://sprites/ui/sword_map.png" type="Texture" id=2]
+[ext_resource path="res://fonts/boxy_bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scripts/ui/SwordMapUI.gd" type="Script" id=4]
+
+
+
+
+[node name="SwordMapUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+smallSwordNodePath = NodePath("SmallSword")
+bigSwordNodePath = NodePath("BigSword")
+
+[node name="SmallSword" type="TextureRect" parent="."]
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 11.0
+margin_bottom = 11.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="BigSword" type="TextureRect" parent="."]
+visible = false
+margin_left = 85.1974
+margin_top = 48.1855
+margin_right = 408.197
+margin_bottom = 248.185
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 22.0
+margin_top = -8.0
+margin_right = 371.272
+margin_bottom = 19.9058
+custom_fonts/normal_font = ExtResource( 3 )
+text = "PRESS TAB TO VIEW THE MAP"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}

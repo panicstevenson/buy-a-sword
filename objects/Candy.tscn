@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://items/cash2.png" type="Texture" id=1]
+[ext_resource path="res://sprites/cash2.png" type="Texture" id=1]
 [ext_resource path="res://objects/cash.tscn" type="PackedScene" id=2]
+
 
 
 [node name="Candy" instance=ExtResource( 2 )]

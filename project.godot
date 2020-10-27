@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "HealthPickup",
 "language": "GDScript",
-"path": "res://items/HealthPickup.gd"
+"path": "res://scripts/HealthPickup.gd"
 }, {
 "base": "Area2D",
 "class": "Interactable",
@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Floatable",
 "class": "Pickup",
 "language": "GDScript",
-"path": "res://items/Pickup.gd"
+"path": "res://scripts/Pickup.gd"
 }, {
 "base": "Node2D",
 "class": "SceneTransition",
@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Control",
 "class": "SwordMapUI",
 "language": "GDScript",
-"path": "res://ui/SwordMapUI.gd"
+"path": "res://scripts/ui/SwordMapUI.gd"
 } ]
 _global_script_class_icons={
 "Dialogueable": "",
@@ -57,13 +57,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Buy A Sword"
-run/main_scene="res://Level.tscn"
+run/main_scene="res://scenes/Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Dialog_Player="*res://Dialog-System-Example/Dialog_Player.tscn"
-GameStateController="*res://system/GameStateController.gd"
+GameStateController="*res://scripts/system/GameStateController.gd"
 
 [display]
 

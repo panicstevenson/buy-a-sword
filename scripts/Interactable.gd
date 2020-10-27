@@ -5,7 +5,7 @@ class_name Interactable
 export var bubble_position = Vector2( 0, 0 )
 
 var letter = "Interactable"
-const bubble_scene = preload("res://Bubble.tscn")
+const bubble_scene = preload("res://objects/ui/Bubble.tscn")
 var bubble = bubble_scene.instance()
 var show_bubble = false
 
