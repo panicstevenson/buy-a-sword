@@ -13,6 +13,9 @@ var occupied_by = null
 var jumping = false
 var velocity = Vector2.ZERO
 
+# short timer that starts when you fall off a ledge so you can still jump
+onready var coyote_timer = $Timer
+var was_on_floor = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,7 +50,6 @@ func _process(_delta):
 
 func get_input():
 	velocity.x = 0
-	jumping = false
 	if Input.is_action_pressed("ui_right"):
 		if occupied_by == null:
 			velocity.x += speed
@@ -77,9 +79,18 @@ func _physics_process(delta):
 			# TODO: Create reset function
 			position = Vector2(100, 250)
 
+	# jump with a coyote timer
+	if is_on_floor():
+		jumping = false
+		
 	if Input.is_action_just_pressed('ui_select'):
-		if is_on_floor() and occupied_by == null:
+		if (is_on_floor() or !coyote_timer.is_stopped()) and occupied_by == null:
 			velocity.y = jump
+			jumping = true
+			
+	if !is_on_floor() and was_on_floor and !jumping:
+		coyote_timer.start()
+	was_on_floor = is_on_floor()
 
 	if velocity.x != 0:
 		$SpriteFlip/AnimatedSprite.animation = "walk"
@@ -90,6 +101,7 @@ func _physics_process(delta):
 			$SpriteFlip.scale.x = 1
 	else:
 		$SpriteFlip/AnimatedSprite.stop()
+		
 
 
 func _set_occupied_by(occupier):
