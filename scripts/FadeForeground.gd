@@ -19,7 +19,7 @@ func _process(delta):
 		alpha = max(alpha - delta * FADE_SPEED, targetAlpha)
 	exteriorNode.modulate = Color(1, 1, 1, alpha)
 	
-
+# DetectPlayer is just an area2D with a collision shape
 # attach this to a detect player in inspector
 func _on_DetectPlayer_body_entered(body):
 	print(str('HOUSE Body entered: ', body.get_name()))

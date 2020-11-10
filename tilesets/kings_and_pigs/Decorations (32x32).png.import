@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tilesForOutside.png-908577f8f86815499c336adb5820d701.stex"
+path="res://.import/Decorations (32x32).png-fb73c40f2d590180620a075e92a67ca6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/kings_and_pigs/14-TileSets/tilesForOutside.png"
-dest_files=[ "res://.import/tilesForOutside.png-908577f8f86815499c336adb5820d701.stex" ]
+source_file="res://tilesets/kings_and_pigs/Decorations (32x32).png"
+dest_files=[ "res://.import/Decorations (32x32).png-fb73c40f2d590180620a075e92a67ca6.stex" ]
 
 [params]
 
