@@ -70,7 +70,6 @@ GameStateController="*res://scripts/system/GameStateController.gd"
 window/size/width=720
 window/size/height=480
 window/size/resizable=false
-window/vsync/use_vsync=false
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
