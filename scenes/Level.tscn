@@ -1,71 +1,20 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://tilesets/HazardTileSet.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/BrickShop1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=3]
 [ext_resource path="res://objects/Sword.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HazardTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/most_important_npc.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/Door.tscn" type="PackedScene" id=9]
 [ext_resource path="res://objects/ui/DialogueUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/ui/GUI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/bandage.tscn" type="PackedScene" id=12]
-[ext_resource path="res://scenes/house.tscn" type="PackedScene" id=13]
-[ext_resource path="res://tilesets/towntiles.png" type="Texture" id=14]
 [ext_resource path="res://objects/cash.tscn" type="PackedScene" id=15]
 [ext_resource path="res://scenes/SceneTransition.tscn" type="PackedScene" id=16]
 [ext_resource path="res://scenes/BackgroundTileMap.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/PlatformTileMap.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/SceneryTileMap.tscn" type="PackedScene" id=19]
-
-[sub_resource type="TileSet" id=1]
-resource_local_to_scene = true
-0/name = "towntiles.png 0"
-0/texture = ExtResource( 14 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 128, 288 )
-0/tile_mode = 2
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 16, 16 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-
-[sub_resource type="TileSet" id=2]
-resource_local_to_scene = true
-0/name = "towntiles.png 0"
-0/texture = ExtResource( 14 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 128, 288 )
-0/tile_mode = 2
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 16, 16 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -75,7 +24,6 @@ position = Vector2( 120, 235 )
 
 [node name="HazardTileMap" parent="." instance=ExtResource( 6 )]
 z_index = -1
-tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 tile_data = PoolIntArray( 786478, 1, 0, 786479, 1, 0, 786480, 1, 0, 786481, 1, 0, 786482, 1, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0, 786486, 1, 0, 852014, 2, 0, 852015, 2, 0, 852016, 2, 0, 852017, 2, 0, 852018, 3, 0, 852019, 2, 0, 852020, 2, 0, 852021, 2, 0, 852022, 2, 0 )
 
@@ -91,19 +39,9 @@ transform = Transform2D( 1.2, 0, 0, 1, 1000, 0 )
 [node name="most_important_npc" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1278, 306.453 )
 
-[node name="Door" parent="." instance=ExtResource( 9 )]
-position = Vector2( 1171, 325.269 )
-z_index = 5
-
-[node name="HouseInside_TileMap" parent="." instance=ExtResource( 13 )]
-position = Vector2( 1152, 384 )
-tile_set = SubResource( 1 )
-
-[node name="TileMap" parent="HouseInside_TileMap" index="0"]
-tile_set = SubResource( 2 )
-
-[node name="Exterior" parent="HouseInside_TileMap" index="1"]
-tile_set = SubResource( 2 )
+[node name="BrickShop1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1090, 352 )
+scale = Vector2( 2, 2 )
 
 [node name="DialogueUI" parent="." instance=ExtResource( 10 )]
 visible = false
@@ -127,7 +65,7 @@ tile_data = PoolIntArray( 65593, 0, 0, 65594, 0, 3, 65595, 0, 3, 65596, 0, 1, 65
 tile_data = PoolIntArray( 58, 536870913, 0, 59, 536870912, 0, 65593, 3, 0, 65594, 5, 0, 65595, 4, 0, 65596, 4, 0, 65597, 5, 0, 65598, 5, 0, 65599, 6, 0, 196606, 0, 0, 196607, 1, 0, 262139, 3, 0, 262140, 4, 0, 262141, 5, 0, 262142, 4, 0, 262143, 5, 0, 196608, 6, 0, 393245, 17, 0, 393246, 15, 0, 458779, 3, 0, 458780, 5, 0, 458781, 4, 0, 458782, 4, 0, 458783, 6, 0, 655366, 536870913, 0, 655367, 536870912, 0, 655368, 0, 0, 655373, 2, 0, 655393, 536870913, 0, 655394, 0, 0, 655419, 536870913, 0, 655420, 1, 0, 720896, 3, 0, 720897, 4, 0, 720898, 5, 0, 720899, 5, 0, 720900, 4, 0, 720901, 5, 0, 720902, 4, 0, 720903, 4, 0, 720904, 4, 0, 720905, 5, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 4, 0, 720910, 4, 0, 720911, 4, 0, 720912, 4, 0, 720913, 5, 0, 720914, 4, 0, 720915, 6, 0, 720919, 3, 0, 720920, 5, 0, 720921, 5, 0, 720922, 4, 0, 720923, 5, 0, 720924, 5, 0, 720925, 5, 0, 720926, 4, 0, 720927, 4, 0, 720928, 4, 0, 720929, 5, 0, 720930, 4, 0, 720931, 4, 0, 720932, 4, 0, 720933, 4, 0, 720934, 4, 0, 720935, 4, 0, 720936, 5, 0, 720937, 4, 0, 720938, 5, 0, 720939, 4, 0, 720940, 5, 0, 720941, 5, 0, 720942, 6, 0, 720950, 536870918, 0, 720951, 5, 0, 720952, 5, 0, 720953, 5, 0, 720954, 4, 0, 720955, 4, 0, 720956, 5, 0, 720957, 5, 0, 720958, 5, 0, 720959, 6, 0 )
 
 [node name="Cash" parent="." instance=ExtResource( 15 )]
-position = Vector2( 1052.54, 324.615 )
+position = Vector2( 1231.4, 110.632 )
 
 [node name="Cash2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 473.525, 315.369 )
@@ -147,7 +85,7 @@ position = Vector2( 1848.39, 12.18 )
 [node name="SceneTransition" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1859.29, 301.689 )
 
-[editable path="HouseInside_TileMap"]
+[editable path="BrickShop1"]
 
 [editable path="DialogueUI"]
 
