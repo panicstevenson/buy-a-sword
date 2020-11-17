@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
+[ext_resource path="res://tilesets/HazardTileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=3]
 [ext_resource path="res://objects/Sword.tscn" type="PackedScene" id=5]
@@ -74,8 +75,9 @@ position = Vector2( 120, 235 )
 
 [node name="HazardTileMap" parent="." instance=ExtResource( 6 )]
 z_index = -1
+tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
-tile_data = PoolIntArray( 786478, 0, 0, 786479, 0, 0, 786480, 0, 0, 786481, 0, 0, 786482, 0, 0, 786483, 0, 0, 786484, 0, 0, 786485, 0, 0, 786486, 0, 0, 852014, 2, 0, 852015, 2, 0, 852016, 2, 0, 852017, 2, 0, 852018, 1, 0, 852019, 2, 0, 852020, 2, 0, 852021, 2, 0, 852022, 2, 0 )
+tile_data = PoolIntArray( 786478, 1, 0, 786479, 1, 0, 786480, 1, 0, 786481, 1, 0, 786482, 1, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0, 786486, 1, 0, 852014, 2, 0, 852015, 2, 0, 852016, 2, 0, 852017, 2, 0, 852018, 3, 0, 852019, 2, 0, 852020, 2, 0, 852021, 2, 0, 852022, 2, 0 )
 
 [node name="Sword" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1263.6, 196.344 )
