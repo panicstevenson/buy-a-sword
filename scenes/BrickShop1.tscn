@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/FadeForeground.gd" type="Script" id=1]
 [ext_resource path="res://tilesets/kings_and_pigs/kings_and_pigs_tileset.tres" type="TileSet" id=2]
-[ext_resource path="res://sprites/kings_and_pigs/11-Door/Idle.png" type="Texture" id=3]
+[ext_resource path="res://sprites/kings_and_pigs/11-Door/doorOutdoor.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 30.2113, 41.6446 )
@@ -43,7 +43,7 @@ z_as_relative = false
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -196608, 6, 3, -196607, 7, 0, -196606, 6, 0, -196605, 6, 2, -196604, 7, 0, -131071, 7, 131072, -131068, 7, 131072 )
+tile_data = PoolIntArray( -196607, 8, 0, -196604, 8, 0, -131071, 8, 196608, -131068, 8, 196608 )
 
 [node name="Exterior2" type="TileMap" parent="Exterior"]
 z_index = -1
@@ -51,7 +51,7 @@ z_as_relative = false
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( -196608, 6, 0, -196607, 6, 1, -196606, 6, 1, -196605, 6, 1, -196604, 6, 1, -196603, 6, 2 )
+tile_data = PoolIntArray( -196608, 10, 0, -196607, 10, 1, -196606, 10, 1, -196605, 10, 1, -196604, 10, 1, -196603, 10, 2 )
 
 [node name="Sprite" type="Sprite" parent="Exterior"]
 position = Vector2( 95.9957, -28 )
