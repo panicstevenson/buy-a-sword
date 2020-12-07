@@ -7,6 +7,8 @@
 visible = false
 position = Vector2( 0, -48 )
 scale = Vector2( 2, 2 )
+z_index = 100
+z_as_relative = false
 texture = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

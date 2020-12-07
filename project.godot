@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/HealthPickup.gd"
 }, {
+"base": "Interactable",
+"class": "InteractDoor",
+"language": "GDScript",
+"path": "res://scripts/InteractDoor.gd"
+}, {
 "base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
@@ -48,6 +53,7 @@ _global_script_class_icons={
 "Dialogueable": "",
 "Floatable": "",
 "HealthPickup": "",
+"InteractDoor": "",
 "Interactable": "",
 "Pickup": "",
 "SceneTransition": "",

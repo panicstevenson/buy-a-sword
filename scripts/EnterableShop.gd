@@ -15,7 +15,7 @@ var backColliders = null
 func _ready():
 	exterior = get_node(exteriorPath)
 	backColliders = get_node(backCollidersPath)
-	#$InteractDoor.connect("interact_door", self, "_on_InteractDoor_interact_door")
+	$InteractDoor.connect("interact_door", self, "_on_InteractDoor_interact_door")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -27,9 +27,10 @@ func _process(delta):
 		
 func _on_InteractDoor_interact_door():
 	inside = !inside
-	# todo colliders
 	if inside:
 		targetAlpha = 0.0
+		backColliders.set_collision_layer(1)
 	else:
 		targetAlpha = 1.0
+		backColliders.set_collision_layer(0)
 	
