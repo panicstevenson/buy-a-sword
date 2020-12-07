@@ -21,7 +21,7 @@ func _init():
 
 
 func _ready():
-	Player = get_parent().find_node("Player")
+	Player = get_tree().get_current_scene().find_node("Player")
 	var _interactable_entered = connect("interactable_entered", Player, "_on_Interactable_entered")
 	var _interactable_exited = connect("interactable_exited", Player, "_on_Interactable_exited")
 	add_child(bubble)

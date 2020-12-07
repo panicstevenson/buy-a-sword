@@ -58,11 +58,13 @@ func get_input():
 			velocity.x -= speed
 	if Input.is_action_just_pressed("ui_up"):
 		if occupied_by != null:
+			# if currently occupied, keep interacting with that object
 			if not occupied_by.interact():
 				_set_occupied_by(null)
 		elif touching != null:
-			_set_occupied_by(touching)
-			occupied_by.interact()
+			# if not occupied, try interacting with the object I am touching
+			if touching.interact():
+				_set_occupied_by(touching)
 		else:
 			pass
 
