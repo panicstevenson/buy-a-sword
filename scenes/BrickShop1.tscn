@@ -6,7 +6,7 @@
 [ext_resource path="res://scripts/InteractDoor.gd" type="Script" id=4]
 [ext_resource path="res://sprites/kings_and_pigs/11-Door/doorOutline.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 16, 16 )
 
 [node name="BrickShop1" type="Node2D"]
@@ -41,6 +41,7 @@ texture = ExtResource( 5 )
 offset = Vector2( -136.004, 156 )
 
 [node name="ExteriorWall" type="TileMap" parent="."]
+visible = false
 z_index = -1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
@@ -76,4 +77,4 @@ bubble_position = Vector2( 0, -40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractDoor"]
 position = Vector2( -0.6623, -16 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )

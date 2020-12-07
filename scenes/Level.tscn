@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/BrickShop1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=3]
+[ext_resource path="res://sprites/kings_and_pigs/08-Box/Idle.png" type="Texture" id=4]
 [ext_resource path="res://objects/Sword.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/HazardTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=7]
@@ -27,21 +28,33 @@ z_index = -1
 cell_size = Vector2( 16, 16 )
 tile_data = PoolIntArray( 786478, 1, 0, 786479, 1, 0, 786480, 1, 0, 786481, 1, 0, 786482, 1, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0, 786486, 1, 0, 852014, 2, 0, 852015, 2, 0, 852016, 2, 0, 852017, 2, 0, 852018, 3, 0, 852019, 2, 0, 852020, 2, 0, 852021, 2, 0, 852022, 2, 0 )
 
-[node name="Sword" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1263.6, 196.344 )
-swordImageFile = "res://sprites/swords/sword5.png"
-
 [node name="Background" parent="." instance=ExtResource( 7 )]
 offset = Vector2( 1000, 0 )
 scale = Vector2( 1.2, 1 )
 transform = Transform2D( 1.2, 0, 0, 1, 1000, 0 )
 
-[node name="most_important_npc" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1360.2, 323.651 )
-
 [node name="BrickShop1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1090, 352 )
 scale = Vector2( 2, 2 )
+
+[node name="most_important_npc" parent="BrickShop1" instance=ExtResource( 8 )]
+position = Vector2( 31, -14 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+
+[node name="Sword" parent="BrickShop1" instance=ExtResource( 5 )]
+position = Vector2( 58, -28 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -1
+swordImageFile = "res://sprites/swords/sword5.png"
+
+[node name="Box" type="Sprite" parent="BrickShop1"]
+position = Vector2( 58, -8 )
+z_index = -1
+texture = ExtResource( 4 )
+
+[node name="ExteriorWall" parent="BrickShop1" index="6"]
+visible = false
 
 [node name="DialogueUI" parent="." instance=ExtResource( 10 )]
 visible = false
