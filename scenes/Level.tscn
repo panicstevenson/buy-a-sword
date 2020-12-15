@@ -40,17 +40,6 @@ transform = Transform2D( 1.2, 0, 0, 1, 1000, 0 )
 position = Vector2( 1090, 352 )
 scale = Vector2( 2, 2 )
 
-[node name="most_important_npc" parent="BrickShop1" instance=ExtResource( 8 )]
-position = Vector2( 31, -14 )
-scale = Vector2( 0.5, 0.5 )
-z_index = -2
-
-[node name="Sword" parent="BrickShop1" instance=ExtResource( 5 )]
-position = Vector2( 58, -28 )
-scale = Vector2( 0.5, 0.5 )
-z_index = -2
-swordImageFile = "res://sprites/swords/sword5.png"
-
 [node name="InteriorObstacles" parent="BrickShop1/InteriorColliders" index="0"]
 position = Vector2( 1090, 352 )
 scale = Vector2( 1, 1 )
@@ -67,6 +56,18 @@ texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BrickShop1/InteriorColliders/Box"]
 shape = SubResource( 1 )
+
+[node name="most_important_npc" parent="BrickShop1/InteriorColliders" index="2" instance=ExtResource( 8 )]
+position = Vector2( 1152, 324 )
+z_index = -2
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sword" parent="BrickShop1" instance=ExtResource( 5 )]
+position = Vector2( 58, -28 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -2
+swordImageFile = "res://sprites/swords/sword5.png"
 
 [node name="DialogueUI" parent="." instance=ExtResource( 10 )]
 visible = false
