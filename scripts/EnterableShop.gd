@@ -29,8 +29,9 @@ func _on_InteractDoor_interact_door():
 	inside = !inside
 	if inside:
 		targetAlpha = 0.0
-		backColliders.set_collision_layer(1)
+		for node in backColliders.get_children():
+			node.set_collision_layer(1)
 	else:
 		targetAlpha = 1.0
-		backColliders.set_collision_layer(0)
-	
+		for node in backColliders.get_children():
+			node.set_collision_layer(0)

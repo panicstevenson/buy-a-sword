@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/BrickShop1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://scenes/BackgroundTileMap.tscn" type="PackedScene" id=17]
 [ext_resource path="res://scenes/PlatformTileMap.tscn" type="PackedScene" id=18]
 [ext_resource path="res://scenes/SceneryTileMap.tscn" type="PackedScene" id=19]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 7 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -40,21 +43,30 @@ scale = Vector2( 2, 2 )
 [node name="most_important_npc" parent="BrickShop1" instance=ExtResource( 8 )]
 position = Vector2( 31, -14 )
 scale = Vector2( 0.5, 0.5 )
-z_index = -1
+z_index = -2
 
 [node name="Sword" parent="BrickShop1" instance=ExtResource( 5 )]
 position = Vector2( 58, -28 )
 scale = Vector2( 0.5, 0.5 )
-z_index = -1
+z_index = -2
 swordImageFile = "res://sprites/swords/sword5.png"
 
-[node name="Box" type="Sprite" parent="BrickShop1"]
-position = Vector2( 58, -8 )
-z_index = -1
+[node name="InteriorObstacles" parent="BrickShop1/InteriorColliders" index="0"]
+position = Vector2( 1090, 352 )
+scale = Vector2( 1, 1 )
+
+[node name="Box" type="StaticBody2D" parent="BrickShop1/InteriorColliders" index="1"]
+position = Vector2( 1200, 340 )
+scale = Vector2( 2, 2 )
+z_index = -2
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="BrickShop1/InteriorColliders/Box"]
 texture = ExtResource( 4 )
 
-[node name="ExteriorWall" parent="BrickShop1" index="6"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BrickShop1/InteriorColliders/Box"]
+shape = SubResource( 1 )
 
 [node name="DialogueUI" parent="." instance=ExtResource( 10 )]
 visible = false
