@@ -23,17 +23,22 @@ collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -196608, 1, 0, -196607, 1, 1, -196606, 1, 1, -196605, 1, 1, -196604, 1, 1, -196603, 1, 2, -131072, 1, 65536, -131071, 1, 65537, -131070, 1, 65537, -131069, 1, 65537, -131068, 1, 65537, -131067, 1, 65538, -65536, 1, 131072, -65535, 1, 131073, -65534, 1, 131073, -65533, 1, 131073, -65532, 1, 131073, -65531, 1, 131074 )
 
+[node name="InteriorDecoration" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 2, 2 )
+format = 1
+tile_data = PoolIntArray( -2424822, 4, 0, -2424772, 4, 0 )
+
 [node name="InteriorColliders" type="Node" parent="."]
 
 [node name="InteriorObstacles" type="TileMap" parent="InteriorColliders"]
-scale = Vector2( 0.5, 0.5 )
 z_index = -5
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -393216, 0, 196623, -393215, 0, 262145, -393214, 0, 262145, -393213, 0, 262145, -393212, 0, 262145, -393211, 0, 262145, -393210, 0, 262145, -393209, 0, 262145, -393208, 0, 262145, -393207, 0, 262145, -393206, 0, 262145, -393205, 0, 196624, -327680, 0, 65540, -327669, 0, 65540, -262144, 0, 65540, -262133, 0, 65540, -196608, 0, 65540, -196606, 4, 0, -196600, 4, 0, -196597, 0, 65540, -131072, 0, 65540, -131061, 0, 65540, -65536, 0, 131076, -65525, 0, 131076 )
+tile_data = PoolIntArray( -196608, 13, 0, -196607, 13, 1, -196606, 13, 1, -196605, 13, 1, -196604, 13, 1, -196603, 13, 2, -131072, 13, 65536, -131067, 13, 65538, -65536, 13, 65536, -65531, 13, 65538 )
 
 [node name="DoorShadow" type="Sprite" parent="."]
 modulate = Color( 1, 1, 1, 0.521569 )
@@ -43,6 +48,7 @@ texture = ExtResource( 5 )
 offset = Vector2( -136.004, 156 )
 
 [node name="ExteriorWall" type="TileMap" parent="."]
+visible = false
 z_index = -1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
