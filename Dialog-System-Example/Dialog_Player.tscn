@@ -1,23 +1,37 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Dialog-System-Example/scripts/dialog_player.gd" type="Script" id=1]
 [ext_resource path="res://Dialog-System-Example/textures/menu_section_9patch.png" type="Texture" id=2]
 [ext_resource path="res://Dialog-System-Example/fonts/speaker_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Dialog-System-Example/fonts/body_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://up_arrow.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TextDisplay"
+length = 10.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:percent_visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = true
+tracks/0/enabled = false
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 200 ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -86,8 +100,10 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 4 )
 text = "This is where the dialog text is displayed.
 Press F6 to run this example. ^_^"
+percent_visible = 0.03125
 
-[node name="Body_AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label"]
+[node name="BSBody_AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label"]
+autoplay = "TextDisplay"
 anims/TextDisplay = SubResource( 1 )
 
 [node name="Speaker_NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect"]
@@ -121,11 +137,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -231.69
+margin_left = -160.0
 margin_top = -40.0
-margin_right = 24.3102
+margin_right = 20.0
 margin_bottom = 8.0
 rect_min_size = Vector2( 180, 48 )
+rect_scale = Vector2( 1.02, 1.02 )
 texture = ExtResource( 2 )
 patch_margin_left = 3
 patch_margin_top = 3
@@ -139,14 +156,18 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 3 )
-text = "Press SpaceBar"
-align = 1
+text = "     Press"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
+position = Vector2( 136, 23.35 )
+scale = Vector2( 0.075, 0.075 )
+texture = ExtResource( 5 )
+
 [node name="SpaceBar_AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
 autoplay = "Blink"
 anims/Blink = SubResource( 2 )
-[connection signal="animation_finished" from="CanvasLayer/Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label/Body_AnimationPlayer" to="." method="_on_Body_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="CanvasLayer/Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label/BSBody_AnimationPlayer" to="." method="_on_Body_AnimationPlayer_animation_finished"]

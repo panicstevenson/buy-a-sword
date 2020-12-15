@@ -16,6 +16,7 @@ z_as_relative = false
 texture = ExtResource( 2 )
 
 [node name="Arrow" type="Sprite" parent="BubbleSprite"]
+self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 0, -1.90735e-06 )
 scale = Vector2( 0.025, 0.025 )
 texture = ExtResource( 3 )
