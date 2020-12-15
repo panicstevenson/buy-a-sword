@@ -1,17 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://fonts/boxy_bold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://sprites/ui/buttonprompt.png" type="Texture" id=2]
+[ext_resource path="res://up_arrow.png" type="Texture" id=3]
+[ext_resource path="res://objects/ui/Bubble.gd" type="Script" id=4]
 
-[node name="Bubble" type="Sprite"]
-visible = false
-position = Vector2( 0, -48 )
+[node name="Bubble" type="Area2D"]
+script = ExtResource( 4 )
+float_max = 30
+
+[node name="BubbleSprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 z_index = 100
 z_as_relative = false
 texture = ExtResource( 2 )
 
+[node name="Arrow" type="Sprite" parent="BubbleSprite"]
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 0, -1.90735e-06 )
+scale = Vector2( 0.025, 0.025 )
+texture = ExtResource( 3 )
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
 margin_left = -3.98547
 margin_top = -4.72788
 margin_right = 12.0145

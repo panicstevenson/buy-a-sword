@@ -1,6 +1,6 @@
 extends Node
 
-onready var _Body_AnimationPlayer = self.find_node("Body_AnimationPlayer")
+#onready var _Body_AnimationPlayer = self.find_node("Body_AnimationPlayer")
 onready var _Body_LBL = self.find_node("Body_Label")
 onready var _Dialog_Box = self.find_node("Dialog_Box")
 onready var _Speaker_LBL = self.find_node("Speaker_Label")
@@ -12,6 +12,8 @@ var _next_slot = 0
 var _final_nid = 0
 var _Story_Reader
 var _Game_State_Controller
+var floatLetters = 0.0
+var goingFast = false
 
 # Virtual Methods
 
@@ -45,8 +47,9 @@ func trigger_next_dialogue():
 		else:
 			return false #finished
 	else:
-		# do nothing
-		return true # TODO press interact to speed up text
+		# speed up
+		goingFast = true
+		return true
 
 # Public Methods
 
@@ -103,6 +106,14 @@ func _parse_conditionals(conditionals : Array):
 				return int(destination)
 	return -1
 
+func _process(delta): 
+	if goingFast:
+		floatLetters += delta * 200
+	else:
+		floatLetters += delta * 20
+	_Body_LBL.visible_characters = floor(floatLetters)
+	if _Body_LBL.percent_visible >= 1.0:
+		_SpaceBar_Icon.visible = true
 
 func _parse_conditional(operand1 : String, comparator : String, operand2 : String):
 	# TODO: Fix this!!
@@ -143,7 +154,11 @@ func _play_node():
 		_Speaker_LBL.text = _get_tagged_text("speaker", text)[0]
 	if _get_tagged_text("dialog", text):
 		_Body_LBL.text = _get_tagged_text("dialog", text)[0].replace('\\n', '\n');
-	_Body_AnimationPlayer.play("TextDisplay")
+	# reset playback
+	goingFast = false
+	floatLetters = 0.0
+	_SpaceBar_Icon.visible = false
+	#_Body_AnimationPlayer.play("TextDisplay")
 
 func _unpack_variables(variables):
 	var variable_map = {}

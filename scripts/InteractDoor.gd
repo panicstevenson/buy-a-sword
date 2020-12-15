@@ -8,6 +8,9 @@ signal interact_door
 # TODO create the actual dialogue nodes for this guy
 # export var dialogue_tree = "Plains/Battle/Slime"
 
+func _ready():
+	($Bubble/BubbleSprite).scale = Vector2(1, 1)
+
 func interact():
 	return toggleDoor()
 
