@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/BrickShop1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://scenes/HazardTileMap.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=7]
 [ext_resource path="res://objects/most_important_npc.tscn" type="PackedScene" id=8]
-[ext_resource path="res://objects/ui/DialogueUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://objects/ui/GUI.tscn" type="PackedScene" id=11]
 [ext_resource path="res://objects/bandage.tscn" type="PackedScene" id=12]
 [ext_resource path="res://objects/cash.tscn" type="PackedScene" id=15]
@@ -68,16 +67,6 @@ scale = Vector2( 0.5, 0.5 )
 z_index = -2
 swordImageFile = "res://sprites/swords/sword5.png"
 
-[node name="DialogueUI" parent="." instance=ExtResource( 10 )]
-visible = false
-margin_left = 384.666
-margin_top = 296.985
-margin_right = 384.666
-margin_bottom = 296.985
-
-[node name="ColorRect" parent="DialogueUI/CanvasLayer" index="0"]
-visible = false
-
 [node name="GUI" parent="." instance=ExtResource( 11 )]
 
 [node name="BackgroundTileMap" parent="." instance=ExtResource( 17 )]
@@ -111,7 +100,5 @@ position = Vector2( 1848.39, 12.18 )
 position = Vector2( 1859.29, 301.689 )
 
 [editable path="BrickShop1"]
-
-[editable path="DialogueUI"]
 
 [editable path="GUI"]
