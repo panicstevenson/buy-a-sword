@@ -9,6 +9,8 @@ class_name Floatable
 var count = 0
 var reverse = 1
 
+export var float_max = 99
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	count = int(round(self.get_position()[0])) % 100
@@ -17,7 +19,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	count += 1
-	if count > 99:
+	if count > float_max:
 		count = 0
 		reverse *= -1
 	self.translate(Vector2(0, -0.15 * reverse))
