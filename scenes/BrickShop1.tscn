@@ -24,12 +24,13 @@ format = 1
 tile_data = PoolIntArray( -196608, 1, 0, -196607, 1, 1, -196606, 1, 1, -196605, 1, 1, -196604, 1, 1, -196603, 1, 2, -131072, 1, 65536, -131071, 1, 65537, -131070, 1, 65537, -131069, 1, 65537, -131068, 1, 65537, -131067, 1, 65538, -65536, 1, 131072, -65535, 1, 131073, -65534, 1, 131073, -65533, 1, 131073, -65532, 1, 131073, -65531, 1, 131074 )
 
 [node name="InteriorDecoration" type="TileMap" parent="."]
+z_index = -5
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 2, 2 )
 format = 1
 tile_data = PoolIntArray( -2424822, 4, 0, -2424772, 4, 0 )
 
-[node name="InteriorColliders" type="Node" parent="."]
+[node name="InteriorColliders" type="Node2D" parent="."]
 
 [node name="InteriorObstacles" type="TileMap" parent="InteriorColliders"]
 z_index = -5
