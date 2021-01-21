@@ -12,5 +12,5 @@ func _ready():
 
 
 func _process(delta):
-	if _Game_State_Controller.get("bought") == "1":
+	if _Game_State_Controller.get("bought") == "true":
 		visible = false

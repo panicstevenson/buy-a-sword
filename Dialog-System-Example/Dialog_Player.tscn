@@ -100,7 +100,7 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 4 )
 text = "This is where the dialog text is displayed.
 Press F6 to run this example. ^_^"
-percent_visible = 0.03125
+percent_visible = 0.0
 
 [node name="BSBody_AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label"]
 autoplay = "TextDisplay"
