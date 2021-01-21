@@ -98,6 +98,9 @@ position = Vector2( 1848.39, 12.18 )
 
 [node name="SceneTransition" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1859.29, 301.689 )
+bubble_position = Vector2( -48, -16 )
+dialogue_tree = "Village/CantLeave"
+storyVarToUnlock = "bought"
 
 [editable path="BrickShop1"]
 

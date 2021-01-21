@@ -41,7 +41,7 @@ story = {
 "text": "<speaker>Shopkeep</speaker>
 <dialog>Sold! No refunds.</dialog>
 <var>cash -= 5</var>
-<var>bought = 1</var>"
+<var>bought = true</var>"
 },
 5: {
 "links": {
@@ -66,7 +66,7 @@ story = {
 }
 }
 },
-3: {
+2: {
 "nodes": {
 1: {
 "links": {
@@ -78,24 +78,10 @@ story = {
 "links": {
 0: 3
 },
-"text": "<speaker>Player</speaker>
-<dialog>You don't look so tough!</dialog>"
+"text": "<speaker></speaker>
+<dialog>I can't leave yet, I need to buy a sword</dialog>"
 },
 3: {
-"links": {
-0: 4
-},
-"text": "<speaker>Player</speaker>
-<dialog>I'll turn you into breakfast jelly!!</dialog>"
-},
-4: {
-"links": {
-0: 5
-},
-"text": "<speaker>Slime</speaker>
-<dialog>Eating newbs like you is my jam!</dialog>"
-},
-5: {
 "links": {
 
 },
@@ -105,6 +91,6 @@ story = {
 }
 }
 names = {
-"Plains/Battle/Slime": 2,
+"Village/CantLeave": 2,
 "Village/Start": 1
 }

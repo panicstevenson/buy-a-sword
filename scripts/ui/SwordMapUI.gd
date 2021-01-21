@@ -19,7 +19,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if _Game_State_Controller.get("bought") == "1":
+	if _Game_State_Controller.get("bought") == "true":
 		visible = true
 		if Input.is_action_just_released("ui_focus_next"):
 			smallSwordNode.visible = !smallSwordNode.visible

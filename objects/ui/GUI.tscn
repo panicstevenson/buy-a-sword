@@ -11,10 +11,6 @@
 [ext_resource path="res://sprites/cash2.png" type="Texture" id=9]
 [ext_resource path="res://scripts/ui/StoryVarReadout.gd" type="Script" id=10]
 
-
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 24
 extra_spacing_bottom = -2

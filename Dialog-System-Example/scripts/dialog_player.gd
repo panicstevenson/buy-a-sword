@@ -63,6 +63,10 @@ func play_dialog(record_name : String):
 	_get_next_node()
 	_play_node()
 	_Dialog_Box.visible = true
+	
+func stop_dialog():
+	_Dialog_Box.visible = false
+	_SpaceBar_Icon.visible = false
 
 # Private Methods
 
