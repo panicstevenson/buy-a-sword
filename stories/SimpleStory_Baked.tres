@@ -78,8 +78,7 @@ story = {
 "links": {
 0: 3
 },
-"text": "<speaker></speaker>
-<dialog>I can't leave yet, I need to buy a sword</dialog>"
+"text": "<dialog>I can't leave yet, I need to buy a sword!</dialog>"
 },
 3: {
 "links": {

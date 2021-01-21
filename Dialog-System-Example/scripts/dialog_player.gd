@@ -2,8 +2,10 @@ extends Node
 
 #onready var _Body_AnimationPlayer = self.find_node("Body_AnimationPlayer")
 onready var _Body_LBL = self.find_node("Body_Label")
+onready var _Body_Container = self.find_node("MarginContainer")
 onready var _Dialog_Box = self.find_node("Dialog_Box")
 onready var _Speaker_LBL = self.find_node("Speaker_Label")
+onready var _Speaker_Rect = self.find_node("Speaker_NinePatchRect")
 onready var _SpaceBar_Icon = self.find_node("SpaceBar_NinePatchRect")
 
 var _did = 0
@@ -155,7 +157,12 @@ func _play_node():
 		_next_slot = 0
 
 	if _get_tagged_text("speaker", text):
+		_Body_Container.margin_top = 48
+		_Speaker_Rect.visible = true
 		_Speaker_LBL.text = _get_tagged_text("speaker", text)[0]
+	else:
+		_Body_Container.margin_top = 16
+		_Speaker_Rect.visible = false
 	if _get_tagged_text("dialog", text):
 		_Body_LBL.text = _get_tagged_text("dialog", text)[0].replace('\\n', '\n');
 	# reset playback

@@ -125,8 +125,7 @@ story = {
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
-"text": "<speaker></speaker>
-<dialog>I can't leave yet, I need to buy a sword</dialog>",
+"text": "<dialog>I can't leave yet, I need to buy a sword!</dialog>",
 "type": "line"
 },
 3: {
