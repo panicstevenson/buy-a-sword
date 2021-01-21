@@ -3,7 +3,7 @@ extends KinematicBody2D
 var _Game_State_Controller
 
 export var speed = 400  # How fast the player will move (pixels/sec).
-export var jump = -800
+export var jump = -875
 export var gravity = 2500
 var screen_size  # Size of the game window.
 
