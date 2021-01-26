@@ -87,9 +87,32 @@ story = {
 "text": "<end>"
 }
 }
+},
+3: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<dialog>Finally! I got a sword... shaped map..?</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
 }
 }
 names = {
 "Village/CantLeave": 2,
-"Village/Start": 1
+"Village/Start": 1,
+"Village/SwordMap": 3
 }

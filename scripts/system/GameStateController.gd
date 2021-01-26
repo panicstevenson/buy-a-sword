@@ -8,11 +8,14 @@ var MAX_HEALTH = 100
 
 signal variables_updated(assignments)
 
+onready var watchers = {}
+onready var watcher_cache = {}
 
 func _ready():
 	print("Life begins. :(")
 	VARIABLES["bought"] = "0"
 	VARIABLES[HEALTH] = MAX_HEALTH
+	VARIABLES["sword1Dialogue"] = "false"
 	pass
 
 func update_variable(story_var, value):
@@ -45,3 +48,18 @@ func set_health(health):
 func change_health(health):
 	var new_health = get_health() + health
 	set_health(new_health)
+
+func _process(delta):
+	check_variable_states()
+
+func add_watcher(key: String, trigger: Trigger, defaultValue: String = ""):
+	watchers[key] = trigger
+	watcher_cache[key] = VARIABLES.get(key, defaultValue)
+
+func check_variable_states():
+	if watchers.empty():
+		return
+	for watcher in watchers.keys():
+		if VARIABLES.get(watcher) != watcher_cache.get(watcher):
+			watchers.get(watcher).trigger()
+			watchers.erase(watcher)

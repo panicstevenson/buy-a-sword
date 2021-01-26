@@ -7,7 +7,8 @@ script = ExtResource( 1 )
 TYPE = "EXP_Story_editor"
 names = {
 "Village/CantLeave": 2,
-"Village/Start": 1
+"Village/Start": 1,
+"Village/SwordMap": 3
 }
 story = {
 1: {
@@ -130,6 +131,44 @@ story = {
 },
 3: {
 "graph_offset": Vector2( 1080, 40 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+3: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Sword shaped map?",
+"name": "Village/SwordMap",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 520, 40 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<dialog>Finally! I got a sword... shaped map..?</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 1000, 40 ),
 "links": {
 
 },
