@@ -7,13 +7,15 @@ const FADE_SPEED = 2
 
 export(NodePath) var exteriorPath
 var exterior = null
-# TODO figure out what to do about the colliders
+export(NodePath) var exteriorCollidersPath
+var exteriorColliders = null
 export(NodePath) var backCollidersPath
 var backColliders = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	exterior = get_node(exteriorPath)
+	exteriorColliders = get_node(exteriorCollidersPath)
 	backColliders = get_node(backCollidersPath)
 	$InteractDoor.connect("interact_door", self, "_on_InteractDoor_interact_door")
 
@@ -31,7 +33,13 @@ func _on_InteractDoor_interact_door():
 		targetAlpha = 0.0
 		for node in backColliders.get_children():
 			node.set_collision_layer(1)
+		for node in exteriorColliders.get_children():
+			node.set_collision_layer(0)
+			print(node)
 	else:
 		targetAlpha = 1.0
 		for node in backColliders.get_children():
 			node.set_collision_layer(0)
+		for node in exteriorColliders.get_children():
+			node.set_collision_layer(1)
+			print(node)

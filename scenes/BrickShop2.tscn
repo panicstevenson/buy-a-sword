@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/EnterableShop.gd" type="Script" id=1]
+[ext_resource path="res://tilesets/kings_and_pigs/kings_and_pigs_tileset.tres" type="TileSet" id=2]
+[ext_resource path="res://sprites/kings_and_pigs/11-Door/doorOutdoor.png" type="Texture" id=3]
+[ext_resource path="res://scripts/InteractDoor.gd" type="Script" id=4]
+[ext_resource path="res://sprites/kings_and_pigs/11-Door/doorOutline.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 16 )
+
+[node name="BrickShop2" type="Node2D"]
+script = ExtResource( 1 )
+exteriorPath = NodePath("../BrickShop2/ExteriorWall")
+exteriorCollidersPath = NodePath("ExteriorWall/ExteriorColliders")
+backCollidersPath = NodePath("../BrickShop2/InteriorColliders")
+
+[node name="Interior" type="TileMap" parent="."]
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -524284, 1, 0, -524283, 1, 1, -524282, 1, 1, -524281, 1, 2, -458748, 1, 65536, -458747, 1, 65537, -458746, 1, 65537, -458745, 1, 65538, -393212, 1, 65536, -393211, 1, 65537, -393210, 1, 65537, -393209, 1, 65538, -327676, 1, 65536, -327675, 1, 65537, -327674, 1, 65537, -327673, 1, 65538, -262144, 1, 0, -262143, 1, 1, -262142, 1, 1, -262141, 1, 1, -262140, 1, 65543, -262139, 1, 65537, -262138, 1, 65537, -262137, 1, 65538, -196608, 1, 65536, -196607, 1, 65537, -196606, 1, 65537, -196605, 1, 65537, -196604, 1, 65537, -196603, 1, 65537, -196602, 1, 65537, -196601, 1, 65538, -131072, 1, 65536, -131071, 1, 65537, -131070, 1, 65537, -131069, 1, 65537, -131068, 1, 65537, -131067, 1, 65537, -131066, 1, 65537, -131065, 1, 65538, -65536, 1, 131072, -65535, 1, 131073, -65534, 1, 131073, -65533, 1, 131073, -65532, 1, 131073, -65531, 1, 131073, -65530, 1, 131073, -65529, 1, 131074 )
+
+[node name="InteriorDecoration" type="TileMap" parent="."]
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 2, 2 )
+format = 1
+tile_data = PoolIntArray( -7471020, 4, 0, -2949110, 4, 0, -2949065, 4, 0 )
+
+[node name="InteriorColliders" type="Node2D" parent="."]
+
+[node name="InteriorPlatforms" type="TileMap" parent="InteriorColliders"]
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -327676, 6, 3, -327674, 6, 0, -327673, 6, 2, -196603, 6, 0, -196602, 6, 2, -65534, 6, 0, -65533, 6, 1, -65532, 6, 2 )
+
+[node name="InteriorObstacles" type="TileMap" parent="InteriorColliders"]
+z_index = -5
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -524284, 13, 0, -524283, 13, 1, -524282, 13, 1, -524281, 13, 2, -458748, 13, 65536, -458747, 13, 65537, -458746, 13, 65537, -458745, 13, 65538, -393212, 13, 65536, -393211, 13, 65537, -393210, 13, 65537, -393209, 13, 65538, -327676, 13, 65536, -327675, 13, 65537, -327674, 13, 65537, -327673, 13, 65538, -262144, 13, 0, -262143, 13, 1, -262142, 13, 1, -262141, 13, 1, -262140, 13, 65543, -262139, 13, 65537, -262138, 13, 65537, -262137, 13, 65538, -196608, 13, 65536, -196607, 13, 65537, -196606, 13, 65537, -196605, 13, 65537, -196604, 13, 65537, -196603, 13, 65537, -196602, 13, 65537, -196601, 13, 65538, -131072, 13, 65536, -131071, 13, 65537, -131070, 13, 65537, -131069, 13, 65537, -131068, 13, 65537, -131067, 13, 65537, -131066, 13, 65537, -131065, 13, 65538, -65536, 13, 65536, -65535, 13, 65537, -65534, 13, 65537, -65533, 13, 65537, -65532, 13, 65537, -65531, 13, 65537, -65530, 13, 65537, -65529, 13, 65538 )
+
+[node name="DoorShadow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.521569 )
+position = Vector2( 334, -184 )
+z_index = -4
+texture = ExtResource( 5 )
+offset = Vector2( -136.004, 156 )
+
+[node name="ExteriorWall" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -524284, 3, 0, -524283, 3, 1, -524282, 3, 1, -524281, 3, 2, -458748, 3, 65536, -458747, 3, 65537, -458746, 3, 65537, -458745, 3, 65538, -393212, 3, 65536, -393211, 3, 65537, -393210, 3, 65537, -393209, 3, 65538, -327676, 3, 65536, -327675, 3, 65537, -327674, 3, 65537, -327673, 3, 65538, -262144, 3, 0, -262143, 3, 1, -262142, 3, 1, -262141, 3, 1, -262140, 3, 65543, -262139, 3, 65537, -262138, 3, 65537, -262137, 3, 65538, -196608, 3, 65536, -196607, 3, 65537, -196606, 3, 65537, -196605, 3, 65537, -196604, 3, 65537, -196603, 3, 65537, -196602, 3, 65537, -196601, 3, 65538, -131072, 3, 65536, -131071, 3, 65537, -131070, 3, 65537, -131069, 3, 65537, -131068, 3, 65537, -131067, 3, 65537, -131066, 3, 65537, -131065, 3, 65538, -65536, 3, 131072, -65535, 3, 131073, -65534, 3, 131073, -65533, 3, 131073, -65532, 3, 131073, -65531, 3, 131073, -65530, 3, 131073, -65529, 3, 131074 )
+
+[node name="ExteriorBanners" type="TileMap" parent="ExteriorWall"]
+z_index = -1
+z_as_relative = false
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -524283, 7, 0, -524282, 7, 0, -458747, 7, 131072, -458746, 7, 131072, -262143, 7, 0, -262141, 7, 0, -262139, 7, 0, -196607, 7, 65536, -196605, 7, 65536, -196603, 7, 131072, -131071, 7, 65536, -131069, 7, 131072, -65535, 7, 131072 )
+
+[node name="ExteriorColliders" type="Node2D" parent="ExteriorWall"]
+
+[node name="ExteriorRoof" type="TileMap" parent="ExteriorWall/ExteriorColliders"]
+z_index = -1
+z_as_relative = false
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( -524284, 10, 0, -524283, 10, 1, -524282, 10, 1, -524281, 10, 2, -262144, 10, 0, -262143, 10, 1, -262142, 10, 1, -262141, 10, 1, -262140, 10, 1, -262139, 10, 1, -262138, 10, 1, -262137, 10, 2 )
+
+[node name="Sprite" type="Sprite" parent="ExteriorWall"]
+position = Vector2( 198, -28 )
+texture = ExtResource( 3 )
+
+[node name="InteractDoor" type="Area2D" parent="."]
+position = Vector2( 198, 0 )
+z_index = 3
+script = ExtResource( 4 )
+bubble_position = Vector2( 0, -40 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractDoor"]
+position = Vector2( -0.6623, -16 )
+shape = SubResource( 1 )

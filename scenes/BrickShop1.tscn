@@ -12,6 +12,7 @@ extents = Vector2( 16, 16 )
 [node name="BrickShop1" type="Node2D"]
 script = ExtResource( 1 )
 exteriorPath = NodePath("ExteriorWall")
+exteriorCollidersPath = NodePath("ExteriorWall/ExteriorColliders")
 backCollidersPath = NodePath("InteriorColliders")
 
 [node name="Interior" type="TileMap" parent="."]
@@ -49,7 +50,6 @@ texture = ExtResource( 5 )
 offset = Vector2( -136.004, 156 )
 
 [node name="ExteriorWall" type="TileMap" parent="."]
-visible = false
 z_index = -1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
@@ -64,11 +64,14 @@ cell_size = Vector2( 32, 32 )
 format = 1
 tile_data = PoolIntArray( -196607, 8, 0, -196604, 8, 0, -131071, 8, 196608, -131068, 8, 196608 )
 
-[node name="ExteriorRoof" type="TileMap" parent="ExteriorWall"]
+[node name="ExteriorColliders" type="Node2D" parent="ExteriorWall"]
+
+[node name="ExteriorRoof" type="TileMap" parent="ExteriorWall/ExteriorColliders"]
 z_index = -1
 z_as_relative = false
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
+collision_mask = 0
 format = 1
 tile_data = PoolIntArray( -196608, 10, 0, -196607, 10, 1, -196606, 10, 1, -196605, 10, 1, -196604, 10, 1, -196603, 10, 2 )
 
