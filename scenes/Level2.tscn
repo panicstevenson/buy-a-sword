@@ -58,6 +58,9 @@ animation = "stanWizard"
 
 [node name="SceneTransition" parent="." instance=ExtResource( 16 )]
 position = Vector2( 1859.29, 301.689 )
+bubble_position = Vector2( -48, -16 )
+dialogue_tree = "Village/CantLeave"
+storyVarToUnlock = "Hello"
 
 [node name="Candy" parent="." instance=ExtResource( 9 )]
 position = Vector2( 104, -308.913 )
