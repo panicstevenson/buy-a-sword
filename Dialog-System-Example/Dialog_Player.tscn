@@ -4,7 +4,7 @@
 [ext_resource path="res://Dialog-System-Example/textures/menu_section_9patch.png" type="Texture" id=2]
 [ext_resource path="res://Dialog-System-Example/fonts/speaker_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Dialog-System-Example/fonts/body_font.tres" type="DynamicFont" id=4]
-[ext_resource path="res://up_arrow.png" type="Texture" id=5]
+[ext_resource path="res://sprites/ui/up_arrow_pixel.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TextDisplay"
@@ -163,8 +163,8 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
-position = Vector2( 136, 23.35 )
-scale = Vector2( 0.075, 0.075 )
+position = Vector2( 136, 24 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="SpaceBar_AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
