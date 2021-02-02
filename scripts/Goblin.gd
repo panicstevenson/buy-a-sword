@@ -8,11 +8,13 @@ var flipped = 1
 
 var velocity = Vector2.ZERO
 
+var Player = null
+
 class_name Goblin
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$HurtBox.connect("body_entered", self, "_on_HurtBox_body_entered")
+	Player = get_tree().get_current_scene().find_node("Player")
 
 func move():
 	if flipped == 1:
@@ -34,3 +36,10 @@ func _physics_process(delta):
 			$SpriteFlip.scale.x = 1
 	else:
 		$SpriteFlip/AnimatedSprite.stop()
+		
+func _on_HurtBox_body_entered(body):
+	print("owieee")
+	if body == Player:
+		print("OWIE PLAYER")
+		Player.velocity.y = -400
+		Player.velocity.x = rand_range(-2000, 2000)

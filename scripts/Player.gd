@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 var _Game_State_Controller
 
+export var accel = 1000 # sideways acceleration pixels/sec2
+export var friction = 300 # pixels/s2
 export var speed = 400  # How fast the player will move (pixels/sec).
 export var jump = -875
 export var gravity = 2500
@@ -12,6 +14,7 @@ var occupied_by = null
 
 var jumping = false
 var velocity = Vector2.ZERO
+var knockback_velocity = Vector2.ZERO
 
 # short timer that starts when you fall off a ledge so you can still jump
 onready var coyote_timer = $Timer
@@ -48,14 +51,22 @@ func _process(_delta):
 	touching.set_visible(true)
 
 
-func get_input():
-	velocity.x = 0
+func get_input(delta):
 	if Input.is_action_pressed("ui_right"):
 		if occupied_by == null:
-			velocity.x += speed
+			velocity.x += accel * delta
 	if Input.is_action_pressed("ui_left"):
 		if occupied_by == null:
-			velocity.x -= speed
+			velocity.x -= accel * delta
+	# decelerate in the opposite direction of velocity. Do not subtract more than velocity
+	var slowdown = friction * delta
+	if abs(velocity.x) > slowdown:
+		velocity.x -= sign(velocity.x) * slowdown
+	else:
+		velocity.x = 0
+		
+	velocity.x = clamp(velocity.x, -speed, speed)
+	
 	if Input.is_action_just_pressed("ui_up"):
 		if occupied_by != null:
 			# if currently occupied, keep interacting with that object
@@ -70,7 +81,7 @@ func get_input():
 
 
 func _physics_process(delta):
-	get_input()
+	get_input(delta)
 	velocity.y += gravity * delta
 	velocity = move_and_slide(velocity, Vector2.UP)
 
