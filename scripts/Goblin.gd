@@ -39,6 +39,7 @@ func _physics_process(delta):
 		
 func _on_HurtBox_body_entered(body):
 	if body == Player:
+		Player.hurt_counter = 1.5
 		Player.velocity.y = rand_range(-300, -200)
 		if Player.get_position().x < get_position().x:
 			Player.velocity.x = rand_range(-2000, -500)

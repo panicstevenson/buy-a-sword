@@ -10,6 +10,7 @@ export var gravity = 2500
 var screen_size  # Size of the game window.
 
 var touching = null
+var hurt_counter = 0
 var occupied_by = null
 
 var jumping = false
@@ -45,10 +46,14 @@ func _on_pickup(pickup: Pickup):
 	$PickupSound.play() # TODO: Move to global soundboi
 
 
-func _process(_delta):
-	if touching == null:
-		return
-	touching.set_visible(true)
+func _process(delta):
+	if touching != null:
+		touching.set_visible(true)
+	if hurt_counter > 0:
+		$SpriteFlip/AnimatedSprite.modulate = Color(1, 1, 1, min(fmod((hurt_counter * 7.0), 1.0), 0.5))
+		hurt_counter -= delta
+	else:
+		$SpriteFlip/AnimatedSprite.modulate = Color(1, 1, 1)
 
 
 func get_input(delta):
