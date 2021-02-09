@@ -38,8 +38,9 @@ func _physics_process(delta):
 		$SpriteFlip/AnimatedSprite.stop()
 		
 func _on_HurtBox_body_entered(body):
-	print("owieee")
 	if body == Player:
-		print("OWIE PLAYER")
-		Player.velocity.y = -400
-		Player.velocity.x = rand_range(-2000, 2000)
+		Player.velocity.y = rand_range(-300, -200)
+		if Player.get_position().x < get_position().x:
+			Player.velocity.x = rand_range(-2000, -500)
+		else:
+			Player.velocity.x = rand_range(500, 2000)
