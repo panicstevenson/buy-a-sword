@@ -7,6 +7,7 @@ export var friction = 300 # pixels/s2
 export var speed = 400  # How fast the player will move (pixels/sec).
 export var jump = -875
 export var gravity = 2500
+var start_position = Vector2.ZERO
 var screen_size  # Size of the game window.
 
 var touching = null
@@ -25,6 +26,7 @@ var was_on_floor = false
 func _ready():
 	screen_size = get_viewport_rect().size
 	_Game_State_Controller = get_node("/root/GameStateController")
+	start_position = position
 
 
 func _on_Interactable_entered(interactable: Interactable):
@@ -95,7 +97,7 @@ func _physics_process(delta):
 		if collision.collider.name == "HazardTileMap":
 			get_hurt(20)
 			# TODO: Create reset function
-			position = Vector2(100, 250)
+			position = start_position
 
 	# jump with a coyote timer
 	if is_on_floor():
