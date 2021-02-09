@@ -93,7 +93,7 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "HazardTileMap":
-			_Game_State_Controller.change_health(-20)
+			get_hurt(20)
 			# TODO: Create reset function
 			position = Vector2(100, 250)
 
@@ -120,6 +120,13 @@ func _physics_process(delta):
 	else:
 		$SpriteFlip/AnimatedSprite.stop()
 		
+
+func is_iframe():
+	return hurt_counter > 0
+
+func get_hurt(damage):
+	_Game_State_Controller.change_health(-damage)
+	hurt_counter = 1.5
 
 
 func _set_occupied_by(occupier):
