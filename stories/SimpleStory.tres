@@ -8,7 +8,8 @@ TYPE = "EXP_Story_editor"
 names = {
 "Village/CantLeave": 2,
 "Village/Start": 1,
-"Village/SwordMap": 3
+"Village/SwordMap": 3,
+"Village2/WizardF": 4
 }
 story = {
 1: {
@@ -175,6 +176,26 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+}
+}
+},
+4: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Conversations with Wizard F",
+"name": "Village2/WizardF",
+"nodes": {
+1: {
+"graph_offset": Vector2( -160, -20 ),
+"links": {
+
+},
+"rect_size": Vector2( 472, 224 ),
+"slot_amount": 1,
+"text": "<start>
+<if>bought2 == 0 => 0</if>
+<else>1</else>",
 "type": "line"
 }
 }

@@ -109,10 +109,23 @@ story = {
 "text": "<end>"
 }
 }
+},
+4: {
+"nodes": {
+1: {
+"links": {
+
+},
+"text": "<start>
+<if>bought2 == 0 => 0</if>
+<else>1</else>"
+}
+}
 }
 }
 names = {
 "Village/CantLeave": 2,
 "Village/Start": 1,
-"Village/SwordMap": 3
+"Village/SwordMap": 3,
+"Village2/WizardF": 4
 }
