@@ -5,7 +5,7 @@
 [ext_resource path="res://sounds/pickup.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 11 )
+extents = Vector2( 8, 9.01124 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
@@ -37,7 +37,7 @@ accel = 4000
 friction = 1700
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 6 )
+position = Vector2( 0, 10 )
 scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
 
